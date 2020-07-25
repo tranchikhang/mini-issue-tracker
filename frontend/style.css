@@ -4,7 +4,6 @@ a {
 
 html, body {
     height: 100%;
-    // width: 100%;
 }
 
 * {
@@ -21,6 +20,10 @@ html, body {
 img {
     max-width: 100%;
     height: auto;
+}
+
+.login {
+    height: 100%;
 }
 
 .login h1, .login input::-webkit-input-placeholder, .login button {
@@ -65,7 +68,6 @@ img {
     background-position: -200px 0;
     background-size: 200px 100%;
     background-repeat: no-repeat;
-    color: #0e6252;
 }
 
 .login input:focus {

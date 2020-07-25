@@ -1,10 +1,10 @@
 var m = require("mithril")
 
-var Login = require('./views/Login');
+var Login = require('./components/Login');
 
 m.route(document.body, '/login', {
     '/login': {
-    	render: function() {
+        render: function() {
             return m(Login);
         }
     },
