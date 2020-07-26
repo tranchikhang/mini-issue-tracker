@@ -1,6 +1,7 @@
 var m = require("mithril")
 
 var Login = require('./components/Login');
+var Layout = require('./components/Layout');
 
 m.route(document.body, '/login', {
     '/login': {
@@ -10,7 +11,7 @@ m.route(document.body, '/login', {
     },
     '/dashboard': {
         render: function() {
-            return m.render(document.body, "Hello world");
+            return m(Layout);
         },
     }
 })
