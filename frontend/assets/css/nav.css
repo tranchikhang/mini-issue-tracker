@@ -59,22 +59,8 @@
     color: black;
 }
 
-@media (max-width:600px) {
-    .nav .nav-links {
-        position: absolute;
-        display: block;
-        width: 100%;
-        background-color: #333;
-        height: 0px;
-        transition: all 0.3s ease-in;
-        overflow-y: hidden;
-        top: 50px;
-        left: 0px;
+@media (max-width:767px) {
+    .nav > .nav-header {
+        flex-basis: 60%;
     }
-
-    .nav .nav-links > a {
-        display: block;
-        width: 100%;
-    }
-
 }

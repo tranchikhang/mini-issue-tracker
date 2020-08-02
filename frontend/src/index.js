@@ -2,6 +2,7 @@ var m = require("mithril")
 
 var Login = require('./components/Login');
 var Layout = require('./components/Layout');
+var Dashboard = require('./components/Dashboard');
 
 m.route(document.body, '/login', {
     '/login': {
@@ -10,8 +11,8 @@ m.route(document.body, '/login', {
         }
     },
     '/dashboard': {
-        render: function() {
-            return m(Layout);
+        render: function(vnode) {
+            return m(Layout, m(Dashboard));
         },
     }
 })

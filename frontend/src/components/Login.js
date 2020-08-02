@@ -28,6 +28,7 @@ module.exports = {
                     m('button', {
                             class: 'pure-button pure-button-primary',
                             id: 'loginBtn',
+                            type: 'button',
                             onclick: function() {
                                 m.route.set('/dashboard')
                             }
