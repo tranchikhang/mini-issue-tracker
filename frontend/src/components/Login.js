@@ -16,7 +16,7 @@ module.exports = {
                         'Login'
                     ),
                     m('input', {
-                        placeholder: 'Username',
+                        placeholder: 'User name',
                         type: 'text',
                         formcontrolname: 'user'
                     }),

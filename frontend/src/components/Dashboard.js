@@ -1,11 +1,10 @@
 var m = require('mithril');
 
-var project = require('../models/Project');
+var Project = require('../models/Project');
 
 module.exports = {
-    oninit: project.getList,
+    oninit: Project.getList,
     view: function() {
-        console.log(project)
         return m('div', {
             'class': 'project-list'
         }, [
@@ -33,7 +32,7 @@ module.exports = {
                     ' Manager '
                 )
             ]),
-            project.list.map(function(project) {
+            Project.list.map(function(project) {
                 return m('div', {
                     'class': 'project'
                 }, [
