@@ -31,7 +31,7 @@ let PasswordInput = {
     error: '',
     value: '',
     validate() {
-        PasswordInput.error = UserNameInput.value.length == 0 ? 'Please input password' : '';
+        PasswordInput.error = PasswordInput.value.length == 0 ? 'Please input password' : '';
     },
     isValid() {
         return PasswordInput.error ? false : true;
