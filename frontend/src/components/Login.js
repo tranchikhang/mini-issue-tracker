@@ -6,19 +6,14 @@ const UserNameInput = {
         return [
             m('input', {
                 className: this.error ? 'error' : '',
-                oninput() {
-                    console.log(this.value)
-                },
                 error: '',
                 placeholder: 'User Name',
                 type: 'text',
                 formcontrolname: 'user',
                 validate() {
-                    console.log(this)
                     this.error = this.value.length == 0 ? 'Please input user name' : '';
                 }
             })
-            // m('p.errorMessage', error)
         ];
     }
 };
