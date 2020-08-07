@@ -1,46 +1,89 @@
 var m = require('mithril');
 
 // This is a MithrilJs component
-const UserNameInput = {
+let UserNameInput = {
+    error: '',
+    value: '',
+    validate() {
+        UserNameInput.error = UserNameInput.value.length == 0 ? 'Please input user name' : '';
+    },
+    isValid() {
+        return UserNameInput.error ? false : true;
+    },
     view() {
         return [
             m('input', {
-                className: this.error ? 'error' : '',
+                className: UserNameInput.error ? 'error' : '',
                 error: '',
                 placeholder: 'User Name',
                 type: 'text',
-                formcontrolname: 'user',
-                validate() {
-                    this.error = this.value.length == 0 ? 'Please input user name' : '';
+                oninput: e => {
+                    UserNameInput.value = e.target.value;
+                    UserNameInput.error && UserNameInput.validate()
                 }
-            })
+            }),
+            UserNameInput.error && m('p.error-message', UserNameInput.error)
         ];
     }
 };
 
-function LoginForm() {
-    return m('form', [
-        m('h1',
-            'Login'
-        ),
-        // passing compnent
-        m(UserNameInput),
-        m('input', {
-            placeholder: 'Password',
-            type: 'password',
-            formcontrolname: 'password'
-        }),
-        m('button', {
-                class: 'pure-button pure-button-primary',
-                id: 'loginBtn',
-                type: 'button',
-                onclick() {
-                    m.route.set('/dashboard')
+let PasswordInput = {
+    error: '',
+    value: '',
+    validate() {
+        PasswordInput.error = UserNameInput.value.length == 0 ? 'Please input password' : '';
+    },
+    isValid() {
+        return PasswordInput.error ? false : true;
+    },
+    view() {
+        return [
+            m('input', {
+                className: PasswordInput.error ? 'error' : '',
+                error: '',
+                placeholder: 'Password',
+                type: 'password',
+                oninput: e => {
+                    PasswordInput.value = e.target.value;
+                    PasswordInput.error && PasswordInput.validate()
                 }
-            },
-            'Login'
-        )
-    ])
+            }),
+            PasswordInput.error && m('p.error-message', PasswordInput.error)
+        ];
+    }
+};
+
+let LoginForm = {
+    validate() {
+        UserNameInput.validate();
+        PasswordInput.validate();
+        if (UserNameInput.isValid() && PasswordInput.isValid()) {
+            return true;
+        }
+        return false;
+    },
+    view() {
+        return m('form', [
+            m('h1',
+                'Login'
+            ),
+            // passing component
+            m(UserNameInput),
+            m(PasswordInput),
+            m('button', {
+                    class: 'pure-button pure-button-primary',
+                    id: 'loginBtn',
+                    type: 'button',
+                    onclick() {
+                        if (LoginForm.validate()) {
+                            m.route.set('/dashboard')
+                        }
+                    }
+                },
+                'Login'
+            )
+        ])
+    }
 }
 
 module.exports = {
@@ -54,7 +97,7 @@ module.exports = {
             m('div', {
                     class: 'pure-u-1-5'
                 },
-                LoginForm()
+                m(LoginForm)
             ),
             m('div', {
                 class: 'pure-u-2-5'
