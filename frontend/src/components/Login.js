@@ -22,7 +22,7 @@ let UserNameInput = {
                     UserNameInput.error && UserNameInput.validate()
                 }
             }),
-            UserNameInput.error && m('p.error-message', UserNameInput.error)
+            m('div.error-message', UserNameInput.error)
         ];
     }
 };
@@ -48,13 +48,13 @@ let PasswordInput = {
                     PasswordInput.error && PasswordInput.validate()
                 }
             }),
-            PasswordInput.error && m('p.error-message', PasswordInput.error)
+            m('div.error-message', PasswordInput.error)
         ];
     }
 };
 
 let LoginForm = {
-    validate() {
+    isValid() {
         UserNameInput.validate();
         PasswordInput.validate();
         if (UserNameInput.isValid() && PasswordInput.isValid()) {
@@ -75,7 +75,7 @@ let LoginForm = {
                     id: 'loginBtn',
                     type: 'button',
                     onclick() {
-                        if (LoginForm.validate()) {
+                        if (LoginForm.isValid()) {
                             m.route.set('/dashboard')
                         }
                     }
