@@ -1,6 +1,5 @@
 var m = require('mithril');
 
-// This is a MithrilJs component
 let UserNameInput = {
     error: '',
     value: '',
@@ -67,7 +66,7 @@ let LoginForm = {
             m('h1',
                 'Login'
             ),
-            // passing component
+            // Passing component
             m(UserNameInput),
             m(PasswordInput),
             m('button', {
