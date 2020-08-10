@@ -39,7 +39,10 @@ module.exports = {
             ]),
             Project.list.map(function(project) {
                 return m('div', {
-                    'class': 'project'
+                    'class': 'project',
+                    onclick() {
+                        m.route.set('/project/1');
+                    }
                 }, [
                     m('div', {
                             'class': 'project-code'
