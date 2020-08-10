@@ -1,12 +1,17 @@
 .project-list .project {
     display: flex;
     flex-wrap: wrap;
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.1), -1px 0 2px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #dbdbdb;
     padding: 15px 0;
+}
+
+.project-list .project:hover {
+    background-color: lightblue;
 }
 
 .project-list .header {
     border-bottom: 2px solid #989898;
+    font-weight: 600;
 }
 
 .project-list .project > * {
@@ -15,7 +20,8 @@
 }
 
 .project-list .project-code {
-    flex: 0 0 20%;
+    flex: 0 0 15%;
+    text-align: center;
 }
 
 .project-list .project-name {
@@ -27,5 +33,9 @@
 }
 
 .project-list .project-manager {
-    flex: 0 0 30%;
+    flex: 0 0 20%;
+}
+
+.project-list .project-status {
+    flex: 0 0 15%;
 }

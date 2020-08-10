@@ -30,6 +30,11 @@ module.exports = {
                         'class': 'project-manager'
                     },
                     ' Manager '
+                ),
+                m('div', {
+                        'class': 'project-status'
+                    },
+                    ' Status '
                 )
             ]),
             Project.list.map(function(project) {
@@ -55,6 +60,11 @@ module.exports = {
                             'class': 'project-manager'
                         },
                         project.manager
+                    ),
+                    m('div', {
+                            'class': 'project-status'
+                        },
+                        project.status
                     )
                 ])
             })
