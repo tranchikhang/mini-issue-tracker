@@ -3,13 +3,13 @@ var m = require('mithril');
 let UserNameInput = {
     error: '',
     value: '',
-    validate() {
+    validate: () => {
         UserNameInput.error = !UserNameInput.value ? 'Please input user name' : '';
     },
-    isValid() {
+    isValid: () => {
         return UserNameInput.error ? false : true;
     },
-    view() {
+    view: () => {
         return [
             m('input', {
                 className: UserNameInput.error ? 'error' : '',
@@ -29,13 +29,13 @@ let UserNameInput = {
 let PasswordInput = {
     error: '',
     value: '',
-    validate() {
+    validate: () => {
         PasswordInput.error = !PasswordInput.value ? 'Please input password' : '';
     },
-    isValid() {
+    isValid: () => {
         return PasswordInput.error ? false : true;
     },
-    view() {
+    view: () => {
         return [
             m('input', {
                 className: PasswordInput.error ? 'error' : '',
@@ -53,7 +53,7 @@ let PasswordInput = {
 };
 
 let LoginForm = {
-    isValid() {
+    isValid: () => {
         UserNameInput.validate();
         PasswordInput.validate();
         if (UserNameInput.isValid() && PasswordInput.isValid()) {
@@ -61,7 +61,7 @@ let LoginForm = {
         }
         return false;
     },
-    view() {
+    view: () => {
         return m('form', [
             m('h1',
                 'Login'
@@ -73,7 +73,7 @@ let LoginForm = {
                     class: 'pure-button pure-button-primary',
                     id: 'loginBtn',
                     type: 'button',
-                    onclick() {
+                    onclick: () => {
                         if (LoginForm.isValid()) {
                             m.route.set('/dashboard')
                         }
@@ -86,7 +86,8 @@ let LoginForm = {
 }
 
 module.exports = {
-    view() {
+    enterKey: '13',
+    view: () => {
         return m('div', {
             class: 'pure-g login'
         }, [
@@ -94,7 +95,12 @@ module.exports = {
                 class: 'pure-u-2-5'
             }, ),
             m('div', {
-                    class: 'pure-u-1-5'
+                    class: 'pure-u-1-5',
+                    onkeyup: (e) => {
+                        if (e.keyCode == 13 && LoginForm.isValid()) {
+                            m.route.set('/dashboard')
+                        }
+                    }
                 },
                 m(LoginForm)
             ),
