@@ -39,7 +39,7 @@ module.exports = {
             ]),
             Project.list.map(function(project) {
                 return m('div', {
-                    'class': 'project',
+                    'class': 'project project-' + project.color,
                     onclick() {
                         m.route.set('/project/1');
                     }

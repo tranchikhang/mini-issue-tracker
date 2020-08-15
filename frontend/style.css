@@ -30,3 +30,9 @@ img {
     height: auto;
     margin: 20px 10%;
 }
+
+@media (max-width: 767.98px) {
+    .main {
+        margin: 10px;
+    }
+}
