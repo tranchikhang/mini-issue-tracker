@@ -63,14 +63,16 @@ let LoginForm = {
     },
     view: () => {
         return m('form', [
-            m('h1',
+            m('h1', {
+                    class: 'has-background-link'
+                },
                 'Login'
             ),
             // Passing component
             m(UserNameInput),
             m(PasswordInput),
             m('button', {
-                    class: 'pure-button pure-button-primary',
+                    class: 'button is-link',
                     id: 'loginBtn',
                     type: 'button',
                     onclick: () => {
@@ -89,13 +91,10 @@ module.exports = {
     enterKey: '13',
     view: () => {
         return m('div', {
-            class: 'pure-g login'
+            class: 'hero is-fullheight'
         }, [
             m('div', {
-                class: 'pure-u-2-5'
-            }, ),
-            m('div', {
-                    class: 'pure-u-1-5',
+                    class: 'container login',
                     onkeyup: (e) => {
                         if (e.keyCode == 13 && LoginForm.isValid()) {
                             m.route.set('/dashboard')
@@ -103,10 +102,7 @@ module.exports = {
                     }
                 },
                 m(LoginForm)
-            ),
-            m('div', {
-                class: 'pure-u-2-5'
-            }, )
+            )
         ]);
     }
 }

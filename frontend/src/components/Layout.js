@@ -4,10 +4,7 @@ var showLogout = false;
 
 module.exports = {
     view: function(vnode) {
-        return m('div', {
-            class: 'container'
-        }, [
-            m('div', {
+        return [m('div', {
                 class: 'nav'
             }, [
                 m('div', {
@@ -50,8 +47,15 @@ module.exports = {
                 )))
             ]),
             m('div', {
-                class: 'main'
-            }, vnode.children)
-        ])
+                class: 'hero'
+            }, m('div', {
+                class: 'hero-body'
+            }, [
+
+                m('div', {
+                    class: 'container'
+                }, vnode.children)
+            ]))
+        ]
     }
 }
