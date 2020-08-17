@@ -22,7 +22,7 @@ let ProjectCreate = {
                     class: 'button',
                     type: 'button',
                     onclick: () => {
-                        ProjectCreate.isDisplayed = !ProjectCreate.isDisplayed;
+                        ProjectCreate.toggle();
                     }
                 }, [
                     m('span', {
