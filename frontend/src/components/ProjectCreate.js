@@ -1,18 +1,38 @@
 var m = require('mithril');
 
 var Constants = require('../resources/Constants.js');
-
-module.exports = {
+let ProjectCreate = {
+    isDisplayed: false,
+    toggle: function() {
+        ProjectCreate.isDisplayed = !ProjectCreate.isDisplayed;
+    },
     view: function() {
         return m('div', {
-                class: 'project-create'
+                class: 'project-create box'
             },
             m('form', {
                 class: ''
             }, [
-                m('div',
-                    'Create new project'
-                ),
+                m('div', {
+                    class: 'columns'
+                }, m('div', {
+                    class: 'column',
+                    align: 'right'
+                }, m('button', {
+                    class: 'button',
+                    type: 'button',
+                    onclick: () => {
+                        ProjectCreate.isDisplayed = !ProjectCreate.isDisplayed;
+                    }
+                }, [
+                    m('span', {
+                            class: 'icon'
+                        },
+                        m('i', {
+                            class: 'fas fa-times'
+                        })),
+                    m('span', 'Close')
+                ]))),
                 m('div', {
                     class: 'columns is-multiline'
                 }, [
@@ -20,7 +40,7 @@ module.exports = {
                         class: 'field is-horizontal column is-half'
                     }, [
                         m('label', {
-                                class: 'field-label',
+                                class: 'field-label is-normal',
                                 for: 'code'
                             },
                             'Code'
@@ -37,7 +57,7 @@ module.exports = {
                         class: 'field is-horizontal column is-half'
                     }, [
                         m('label', {
-                                class: 'field-label',
+                                class: 'field-label is-normal',
                                 for: 'name'
                             },
                             'Name'
@@ -54,7 +74,7 @@ module.exports = {
                         class: 'field is-horizontal column is-half'
                     }, [
                         m('label', {
-                                class: 'field-label',
+                                class: 'field-label is-normal',
                                 for: 'client'
                             },
                             'Client'
@@ -72,7 +92,7 @@ module.exports = {
                         class: 'field is-horizontal column is-half'
                     }, [
                         m('label', {
-                                class: 'field-label',
+                                class: 'field-label is-normal',
                                 for: 'manager'
                             },
                             'Manager'
@@ -89,7 +109,7 @@ module.exports = {
                         class: 'field is-horizontal column is-half'
                     }, [
                         m('label', {
-                                class: 'field-label',
+                                class: 'field-label is-normal',
                                 for: 'status'
                             },
                             'Status'
@@ -107,15 +127,25 @@ module.exports = {
                     ])
                 ]),
                 m('div', {
+                    class: 'columns'
+                }, m('div', {
                     class: 'column',
                     align: 'right'
                 }, m('button', {
-                        class: 'button is-success',
-                        type: 'submit'
-                    },
-                    'Save'
-                ))
+                    class: 'button is-success',
+                    type: 'submit'
+                }, [
+                    m('span', {
+                            class: 'icon'
+                        },
+                        m('i', {
+                            class: 'fas fa-save'
+                        })),
+                    m('span', 'Save')
+                ])))
             ])
         )
     }
 }
+
+module.exports = ProjectCreate
