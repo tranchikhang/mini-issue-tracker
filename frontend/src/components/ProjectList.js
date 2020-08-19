@@ -35,14 +35,16 @@ module.exports = {
                         'class': 'project-status'
                     },
                     ' Status '
+                ),
+                m('div', {
+                        'class': 'project-action'
+                    },
+                    ''
                 )
             ]),
             Project.list.map(function(project) {
                 return m('div', {
-                    'class': 'project project-' + project.color,
-                    onclick() {
-                        m.route.set('/project/1');
-                    }
+                    'class': 'project project-' + project.color
                 }, [
                     m('div', {
                             'class': 'project-code'
@@ -68,7 +70,38 @@ module.exports = {
                             'class': 'project-status'
                         },
                         project.status
-                    )
+                    ),
+                    m('div', {
+                        'class': 'project-action'
+                    }, [
+                        m('span', {
+                                class: 'icon',
+                                onclick: () => {
+                                    m.route.set('/project/1');
+                                }
+                            },
+                            m('i', {
+                                class: 'fas fa-eye'
+                            })),
+                        m('span', {
+                                class: 'icon',
+                                onclick: () => {
+                                    m.route.set('/project/1');
+                                }
+                            },
+                            m('i', {
+                                class: 'fas fa-edit'
+                            })),
+                        m('span', {
+                                class: 'icon',
+                                onclick: () => {
+                                    m.route.set('/project/1');
+                                }
+                            },
+                            m('i', {
+                                class: 'fas fa-trash-alt'
+                            }))
+                    ])
                 ])
             })
         ])
