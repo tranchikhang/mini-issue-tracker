@@ -4,7 +4,7 @@ let UserNameInput = {
     error: '',
     value: '',
     validate: () => {
-        UserNameInput.error = !UserNameInput.value ? 'Please input user name' : '';
+        UserNameInput.error = !UserNameInput.value ? 'Please enter user name' : '';
     },
     isValid: () => {
         return UserNameInput.error ? false : true;
@@ -13,7 +13,6 @@ let UserNameInput = {
         return [
             m('input', {
                 className: UserNameInput.error ? 'error' : '',
-                error: '',
                 placeholder: 'User Name',
                 type: 'text',
                 oninput: e => {
@@ -30,7 +29,7 @@ let PasswordInput = {
     error: '',
     value: '',
     validate: () => {
-        PasswordInput.error = !PasswordInput.value ? 'Please input password' : '';
+        PasswordInput.error = !PasswordInput.value ? 'Please enter password' : '';
     },
     isValid: () => {
         return PasswordInput.error ? false : true;
@@ -39,7 +38,6 @@ let PasswordInput = {
         return [
             m('input', {
                 className: PasswordInput.error ? 'error' : '',
-                error: '',
                 placeholder: 'Password',
                 type: 'password',
                 oninput: e => {

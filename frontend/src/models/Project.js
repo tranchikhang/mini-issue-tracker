@@ -5,7 +5,7 @@ var Project = {
     getList: function() {
         Project.list = [{
             "id": 1,
-            "color": "red",
+            "color": 1,
             "code": "RT",
             "name": "Ronstring",
             "client": "Mydeo",
@@ -13,7 +13,7 @@ var Project = {
             "status": "Finished"
         }, {
             "id": 2,
-            "color": "blue",
+            "color": 3,
             "code": "LT",
             "name": "Lotstring",
             "client": "Skibox",
@@ -21,7 +21,7 @@ var Project = {
             "status": "Ongoing"
         }, {
             "id": 3,
-            "color": "green",
+            "color": 5,
             "code": "TLD",
             "name": "Trippledex",
             "client": "Kare",
@@ -29,7 +29,7 @@ var Project = {
             "status": "Ongoing"
         }, {
             "id": 4,
-            "color": "orange",
+            "color": 7,
             "code": "HTT",
             "name": "Hatity",
             "client": "Yakitri",
@@ -37,7 +37,7 @@ var Project = {
             "status": "Ongoing"
         }, {
             "id": 5,
-            "color": "indigo",
+            "color": 2,
             "code": "SLB",
             "name": "Solarbreeze",
             "client": "Tagchat",

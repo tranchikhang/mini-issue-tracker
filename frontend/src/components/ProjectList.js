@@ -1,8 +1,9 @@
 var m = require('mithril');
 
 var Project = require('../models/Project');
+var Constants = require('../resources/Constants.js');
 
-module.exports = {
+let ProjectList = {
     oninit: Project.getList,
     view: function() {
         return m('div', {
@@ -44,7 +45,7 @@ module.exports = {
             ]),
             Project.list.map(function(project) {
                 return m('div', {
-                    'class': 'project project-' + project.color
+                    'class': 'project project-' + Constants.ProjectColors[project.color]
                 }, [
                     m('div', {
                             'class': 'project-code'
@@ -107,3 +108,5 @@ module.exports = {
         ])
     }
 }
+
+module.exports = ProjectList
