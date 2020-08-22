@@ -14,6 +14,7 @@ let UserNameInput = {
             m('input', {
                 className: UserNameInput.error ? 'error' : '',
                 placeholder: 'User Name',
+                value: UserNameInput.value,
                 type: 'text',
                 oninput: e => {
                     UserNameInput.value = e.target.value;
@@ -39,6 +40,7 @@ let PasswordInput = {
             m('input', {
                 className: PasswordInput.error ? 'error' : '',
                 placeholder: 'Password',
+                value: PasswordInput.value,
                 type: 'password',
                 oninput: e => {
                     PasswordInput.value = e.target.value;

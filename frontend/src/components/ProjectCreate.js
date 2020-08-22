@@ -18,11 +18,13 @@ let CodeInput = {
             },
             m('div', {
                 class: 'field'
-            }, [m('input', {
+            }, [
+                m('input', {
                     className: CodeInput.error ? 'input error' : 'input',
                     id: 'code',
                     placeholder: 'Code',
                     type: 'text',
+                    value: CodeInput.value,
                     oninput: e => {
                         CodeInput.value = e.target.value;
                         CodeInput.error && CodeInput.validate()
@@ -51,11 +53,13 @@ let NameInput = {
             },
             m('div', {
                 class: 'field'
-            }, [m('input', {
+            }, [
+                m('input', {
                     className: NameInput.error ? 'input error' : 'input',
                     id: 'name',
                     placeholder: 'Name',
                     type: 'text',
+                    value: NameInput.value,
                     oninput: e => {
                         NameInput.value = e.target.value;
                         NameInput.error && NameInput.validate()
@@ -84,11 +88,13 @@ let ClientInput = {
             },
             m('div', {
                 class: 'field'
-            }, [m('input', {
+            }, [
+                m('input', {
                     className: ClientInput.error ? 'input error' : 'input',
                     id: 'client',
                     placeholder: 'Client',
                     type: 'text',
+                    value: ClientInput.value,
                     oninput: e => {
                         ClientInput.value = e.target.value;
                         ClientInput.error && ClientInput.validate()
@@ -117,11 +123,13 @@ let ManagerInput = {
             },
             m('div', {
                 class: 'field'
-            }, [m('input', {
+            }, [
+                m('input', {
                     className: ManagerInput.error ? 'input error' : 'input',
                     id: 'manager',
                     placeholder: 'Manager',
                     type: 'text',
+                    value: ManagerInput.value,
                     oninput: e => {
                         ManagerInput.value = e.target.value;
                         ManagerInput.error && ManagerInput.validate()
@@ -136,28 +144,31 @@ let ManagerInput = {
 };
 
 let StatusSelect = {
-    value: '',
+    value: 0,
     view: () => {
         return m('select', {
             class: 'select',
             id: 'status',
+            value: StatusSelect.value,
             onchange: e => {
                 StatusSelect.value = e.target.value;
             }
         }, [
-            Object.keys(Constants.IssueStatus).map(key => m('option',
-                Constants.IssueStatus[key]
+            Object.keys(Constants.IssueStatus).map(key => m('option', {
+                    value: key
+                }, Constants.IssueStatus[key]
             ))
         ]);
     }
 }
 
 let ColorSelect = {
-    value: '',
+    value: 1,
     view: () => {
         return m('select', {
             class: 'select',
             id: 'status',
+            value: ColorSelect.value,
             onchange: e => {
                 ColorSelect.value = e.target.value;
             }
@@ -180,6 +191,14 @@ let ProjectCreateForm = {
             return true;
         }
         return false;
+    },
+    reset: () => {
+        CodeInput.value = '';
+        NameInput.value = '';
+        ClientInput.value = '';
+        ManagerInput.value = '';
+        StatusSelect.value = 0;
+        ColorSelect.value = 1;
     }
 }
 
@@ -302,14 +321,15 @@ let ProjectCreate = {
                 onclick: () => {
                     if (ProjectCreateForm.isValid()) {
                         Project.list.push({
-                            "id": Project.list.length + 1,
-                            "color": ColorSelect.value,
-                            "code": CodeInput.value,
-                            "name": NameInput.value,
-                            "client": ClientInput.value,
-                            "manager": ManagerInput.value,
-                            "status": StatusSelect.value
+                            'id': Project.list.length + 1,
+                            'color': ColorSelect.value,
+                            'code': CodeInput.value,
+                            'name': NameInput.value,
+                            'client': ClientInput.value,
+                            'manager': ManagerInput.value,
+                            'status': StatusSelect.value
                         });
+                        ProjectCreateForm.reset();
                     }
                 }
             }, [
