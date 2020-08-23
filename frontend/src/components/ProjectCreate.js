@@ -204,10 +204,10 @@ let ProjectCreateForm = {
 
 let ProjectCreate = {
     isDisplayed: false,
-    toggle: function() {
+    toggle: () => {
         ProjectCreate.isDisplayed = !ProjectCreate.isDisplayed;
     },
-    view: function() {
+    view: () => {
         return m('div', {
             class: 'project-create box px-6'
         }, [

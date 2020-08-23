@@ -27,3 +27,7 @@
 	background-color: #f14668;
 	color: #fff;
 }
+
+.issue-detail .detail-content {
+	max-width: 400px;
+}
