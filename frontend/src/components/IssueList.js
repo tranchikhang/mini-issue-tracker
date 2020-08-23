@@ -35,11 +35,6 @@ let IssueList = {
                         class: 'issue-pic'
                     },
                     ' Person in Charge '
-                ),
-                m('div', {
-                        class: 'issue-modified'
-                    },
-                    ' Modified '
                 )
             ]),
             Issue.list.map(function(issue) {
@@ -81,11 +76,6 @@ let IssueList = {
                             class: 'issue-pic'
                         },
                         issue.pic
-                    ),
-                    m('div', {
-                            class: 'issue-modified'
-                        },
-                        issue.modified
                     )
                 ])
             })
