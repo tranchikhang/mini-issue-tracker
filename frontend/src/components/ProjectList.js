@@ -53,10 +53,12 @@ let ProjectList = {
                         project.code
                     ),
                     m('div', {
-                            'class': 'project-name'
-                        },
-                        project.name
-                    ),
+                        'class': 'project-name'
+                    }, m('a', {
+                        onclick: () => {
+                            m.route.set('/project/1');
+                        }
+                    }, project.name)),
                     m('div', {
                             'class': 'project-client'
                         },
@@ -71,38 +73,7 @@ let ProjectList = {
                             'class': 'project-status'
                         },
                         project.status
-                    ),
-                    m('div', {
-                        'class': 'project-action'
-                    }, [
-                        m('span', {
-                                class: 'icon',
-                                onclick: () => {
-                                    m.route.set('/project/1');
-                                }
-                            },
-                            m('i', {
-                                class: 'fas fa-eye'
-                            })),
-                        m('span', {
-                                class: 'icon',
-                                onclick: () => {
-                                    m.route.set('/project/1');
-                                }
-                            },
-                            m('i', {
-                                class: 'fas fa-edit'
-                            })),
-                        m('span', {
-                                class: 'icon',
-                                onclick: () => {
-                                    m.route.set('/project/1');
-                                }
-                            },
-                            m('i', {
-                                class: 'fas fa-trash-alt'
-                            }))
-                    ])
+                    )
                 ])
             })
         ])
