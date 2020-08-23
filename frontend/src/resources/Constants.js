@@ -16,12 +16,12 @@ export const IssuePriority = {
 };
 
 export const ProjectColors = {
-	1: "red",
-	2: "indigo",
-	3: "blue",
-	4: "teal",
-	5: "green",
-	6: "yellow",
-	7: "orange",
-	8: "brown"
+	1: "Red",
+	2: "Indigo",
+	3: "Blue",
+	4: "Teal",
+	5: "Green",
+	6: "Yellow",
+	7: "Orange",
+	8: "Brown"
 };

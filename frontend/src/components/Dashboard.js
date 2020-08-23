@@ -3,7 +3,7 @@ var m = require('mithril');
 var ProjectList = require('./ProjectList.js');
 var ProjectCreate = require('./ProjectCreate.js');
 
-module.exports = {
+let Dashboard = {
     view: function() {
         return [
             m('div', {
@@ -36,3 +36,5 @@ module.exports = {
         ]
     }
 }
+
+module.exports = Dashboard

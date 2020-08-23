@@ -2,7 +2,7 @@ var m = require('mithril');
 
 var showLogout = false;
 
-module.exports = {
+let Layout = {
     view: function(vnode) {
         return [m('div', {
                 class: 'nav'
@@ -59,3 +59,5 @@ module.exports = {
         ]
     }
 }
+
+module.exports = Layout

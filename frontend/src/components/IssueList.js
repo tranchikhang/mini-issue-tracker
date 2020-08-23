@@ -2,7 +2,7 @@ var m = require('mithril');
 
 var Issue = require('../models/Issue');
 
-module.exports = {
+let IssueList = {
     oninit: Issue.getList,
     view: function() {
         return m('div', {
@@ -92,3 +92,5 @@ module.exports = {
         ])
     }
 }
+
+module.exports = IssueList

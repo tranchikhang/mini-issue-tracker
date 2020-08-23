@@ -45,7 +45,7 @@ let ProjectList = {
             ]),
             Project.list.map(function(project) {
                 return m('div', {
-                    'class': 'project project-' + Constants.ProjectColors[project.color]
+                    'class': 'project project-' + Constants.ProjectColors[project.color].toLowerCase()
                 }, [
                     m('div', {
                             'class': 'project-code'

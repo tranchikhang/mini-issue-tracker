@@ -87,7 +87,7 @@ let LoginForm = {
     }
 }
 
-module.exports = {
+let Login = {
     enterKey: '13',
     view: () => {
         return m('div', {
@@ -106,3 +106,5 @@ module.exports = {
         ]);
     }
 }
+
+module.exports = Login
