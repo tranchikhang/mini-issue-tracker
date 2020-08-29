@@ -1,16 +1,16 @@
 var m = require('mithril');
 
+var Issue = require('../models/Issue');
+
 let IssueDetail = {
-    isDisplayed: false,
-    toggle: () => {
-        IssueDetail.isDisplayed = !IssueDetail.isDisplayed;
-    },
-    show: () => {
-        IssueDetail.isDisplayed = true;
+    currentIssue: null,
+    oninit: function(vnode) {
+        Issue.getList();
+        IssueDetail.currentIssue = Issue.list.find(issue => issue.id == vnode.attrs.id);
     },
     view: () => {
         return m('div', {
-            class: 'issue-detail column' + (IssueDetail.isDisplayed ? ' is-three-quarter' : '')
+            class: 'issue-detail'
         }, [
             m('h1', {
                     class: 'title'
@@ -27,7 +27,7 @@ let IssueDetail = {
                             class: 'icon'
                         },
                         m('i', {
-                            class: 'far fa-edit'
+                            class: 'fas fa-edit'
                         })),
                     m('span', 'Edit')
                 ]),
@@ -38,46 +38,65 @@ let IssueDetail = {
                             class: 'icon'
                         },
                         m('i', {
-                            class: 'far fa-comment'
+                            class: 'fas fa-comment'
                         })),
                     m('span', 'Comment')
                 ])
             ]),
+            m('h2', {
+                    class: 'subtitle'
+                },
+                'Details'
+            ),
             m('div', {
-                class: 'detail'
+                class: 'attributes'
             }, [
-                m('h2', {
-                        class: 'subtitle'
-                    },
-                    'Details'
-                ),
                 m('div', {
-                    class: 'detail-content'
+                    class: 'attributes-left'
                 }, [
                     m('div', {
-                        class: 'detail-item columns'
+                        class: 'attributes-item'
                     }, [
                         m('strong', {
-                                class: 'column is-half'
+                                class: 'label'
                             },
-                            'Detail'),
+                            'Status'),
                         m('span', {
-                                class: 'column is-half'
+                                class: 'value ' + IssueDetail.currentIssue.statusClass
                             },
-                            'Value')
+                            IssueDetail.currentIssue.status
+                        )
                     ]),
                     m('div', {
-                        class: 'detail-item columns'
+                        class: 'attributes-item'
                     }, [
                         m('strong', {
-                                class: 'column is-half'
+                                class: 'label'
                             },
-                            'Detail'),
+                            'Priority'),
                         m('span', {
-                                class: 'column is-half'
+                                class: 'value ' + IssueDetail.currentIssue.priorityClass
                             },
-                            'Value')
-                    ]),
+                            IssueDetail.currentIssue.priority
+                        )
+                    ])
+                ]),
+                m('div', {
+                    class: 'attributes-right'
+                }, [
+                    m('div', {
+                        class: 'attributes-item'
+                    }, [
+                        m('strong', {
+                                class: 'label'
+                            },
+                            'Assignee'),
+                        m('span', {
+                                class: 'value'
+                            },
+                            IssueDetail.currentIssue.assignee
+                            )
+                    ])
                 ])
             ]),
             m('div', {
