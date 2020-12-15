@@ -28,25 +28,11 @@
 	color: #fff;
 }
 
-.issue-detail .attributes {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.issue-detail .attributes .attributes-left {
-	flex: 1;
-	width: 170px;
-}
-
-.issue-detail .attributes .attributes-right {
-	flex: 1;
-}
-
-.issue-detail .attributes .attributes-item {
+.issue-detail .attributes-item {
 	clear: left;
 }
 
-.issue-detail .attributes .attributes-item .label {
+.issue-detail .attributes-item .label {
 	width: 170px;
 	float: left;
 }

@@ -8,6 +8,7 @@ var Issue = {
         Issue.list = [{
             "id": 1,
             "status": 1,
+            "type": 1,
             "summary": "CSS layout error in login page",
             "assignee": "Tyra Guthrie",
             "due": "2020/09/15",
@@ -17,6 +18,7 @@ var Issue = {
         }, {
             "id": 2,
             "status": 4,
+            "type": 3,
             "summary": "Missing alert on iOS 11",
             "assignee": "Divine Carey",
             "due": "2020/08/24",
@@ -26,6 +28,7 @@ var Issue = {
         }, {
             "id": 3,
             "status": 2,
+            "type": 2,
             "summary": "Update profile throws error",
             "assignee": "Nel Steadman",
             "due": "2020/08/03",
@@ -35,6 +38,7 @@ var Issue = {
         }, {
             "id": 4,
             "status": 5,
+            "type": 1,
             "summary": "API timeout",
             "assignee": "Raya Davison",
             "due": "2020/08/04",
@@ -44,6 +48,7 @@ var Issue = {
         }, {
             "id": 5,
             "status": 2,
+            "type": 3,
             "summary": "Signin error",
             "assignee": "Dan Maguire",
             "due": "2020/08/09",
@@ -53,8 +58,12 @@ var Issue = {
         }];
         Issue.list = Issue.list.map(obj => {
             obj.status = Constants.IssueStatus[obj.status];
-            obj.priority = Constants.IssuePriority[obj.priority];
             obj.statusClass = 'status ' + obj.status.toLowerCase();
+
+            obj.type = Constants.IssueType[obj.type];
+            obj.typeClass = 'type ' + obj.type.toLowerCase();
+
+            obj.priority = Constants.IssuePriority[obj.priority];
             obj.priorityClass = 'priority ' + obj.priority.toLowerCase();
             return obj;
         });

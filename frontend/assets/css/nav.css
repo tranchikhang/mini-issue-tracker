@@ -5,11 +5,11 @@
 }
 
 .nav > .nav-header {
-    flex-basis: 20%;
+    flex-basis: 30%;
 }
 
-.nav > .nav-header > .nav-title {
-    font-size: 22px;
+.nav > .nav-header > .nav-title a {
+    font-size: 28px;
     color: #fff;
     padding: 10px 10px 10px 10px;
 }

@@ -23,3 +23,9 @@ export const ProjectColors = {
 	7: "Orange",
 	8: "Brown"
 };
+
+export const IssueType = {
+	1: "Improvement",
+	2: "New Feature",
+	3: "Bug"
+}
