@@ -27,3 +27,12 @@
 	background-color: #f14668;
 	color: #fff;
 }
+
+.issue-detail .attributes-item {
+	clear: left;
+}
+
+.issue-detail .attributes-item .label {
+	width: 170px;
+	float: left;
+}

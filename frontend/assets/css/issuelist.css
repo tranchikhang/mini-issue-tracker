@@ -1,10 +1,8 @@
 .issue-list .issue {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     border-bottom: 1px solid #dbdbdb;
+    grid-template-columns: 10% 15% 15% auto 20%;
     padding: 15px 0;
-    margin-left: -5px;
-    margin-right: -5px;
 }
 
 .issue-list .issue:hover {
@@ -17,34 +15,36 @@
 }
 
 .issue-list .header {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 15px 0;
     border-bottom: 2px solid #989898;
     font-weight: 600;
 }
 
 .issue-list .issue-id {
-    flex: 0 0 10%;
     text-align: center;
+    grid-column: 1;
+    grid-row: 1;
 }
 
 .issue-list .issue-status {
-    flex: 0 0 15%;
     text-align: center;
+    grid-column: 2;
+    grid-row: 1;
 }
 
 .issue-list .issue-priority {
-    flex: 0 0 15%;
     text-align: center;
+    grid-column: 3;
+    grid-row: 1;
 }
 
 .issue-list .issue-summary {
-    flex: 0 0 40%;
+    grid-column: 4;
+    grid-row: 1;
 }
 
-.issue-list .issue-pic {
-    flex: 0 0 20%;
+.issue-list .issue-assignee {
+    grid-column: 5;
+    grid-row: 1;
 }
 
 span.status, span.priority {
@@ -63,20 +63,26 @@ span.status, span.priority {
 }
 
 @media (max-width:767.98px) {
-    .issue-list .issue-status {
-        flex: 0 0 20%;
-    }
-
-    .issue-list .issue-priority {
-        flex: 0 0 15%;
+    .issue-list .issue {
+        grid-template-columns: 10% 25% 25% auto;
+        grid-template-rows: auto auto;
     }
 
     .issue-list .issue-summary {
-        flex: 0 0 27%;
+        grid-column: 1/4;
+        grid-row: 2;
     }
 
-    .issue-list .issue-pic {
-        flex: 0 0 25%;
+    .issue-list .issue-assignee {
+        grid-column: 4;
+    }
+
+    .issue-list .header .issue-summary {
+        display: none;
+    }
+
+    .issue-list .issue-summary {
+        margin-top: 10px;
     }
 
 }

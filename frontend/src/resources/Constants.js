@@ -1,5 +1,4 @@
 export const IssueStatus = {
-	0: "None",
 	1: "Unconfirmed",
 	2: "Confirmed",
 	3: "In Progress",
@@ -8,9 +7,8 @@ export const IssueStatus = {
 }
 
 export const IssuePriority = {
-	0: "None",
 	1: "Low",
-	2: "Normal",
+	2: "Medium",
 	3: "High",
 	4: "Urgent"
 };
@@ -25,3 +23,9 @@ export const ProjectColors = {
 	7: "Orange",
 	8: "Brown"
 };
+
+export const IssueType = {
+	1: "Improvement",
+	2: "New Feature",
+	3: "Bug"
+}

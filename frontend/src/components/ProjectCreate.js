@@ -146,38 +146,45 @@ let ManagerInput = {
 let StatusSelect = {
     value: 0,
     view: () => {
-        return m('select', {
-            class: 'select',
-            id: 'status',
-            value: StatusSelect.value,
-            onchange: e => {
-                StatusSelect.value = e.target.value;
-            }
-        }, [
-            Object.keys(Constants.IssueStatus).map(key => m('option', {
+        return m('div', {
+                class: 'select'
+            },
+            m('select', {
+                class: 'select',
+                id: 'status',
+                value: StatusSelect.value,
+                onchange: e => {
+                    StatusSelect.value = e.target.value;
+                }
+            }, [
+                Object.keys(Constants.IssueStatus).map(key => m('option', {
                     value: key
-                }, Constants.IssueStatus[key]
-            ))
-        ]);
+                }, Constants.IssueStatus[key]))
+            ])
+        );
     }
 }
 
 let ColorSelect = {
     value: 1,
     view: () => {
-        return m('select', {
-            class: 'select',
-            id: 'status',
-            value: ColorSelect.value,
-            onchange: e => {
-                ColorSelect.value = e.target.value;
-            }
-        }, [
-            Object.keys(Constants.ProjectColors).map(key => m('option', {
-                style: 'background:' + Constants.ProjectColors[key],
-                value: key
-            }, Constants.ProjectColors[key]))
-        ]);
+        return m('div', {
+                class: 'select'
+            },
+            m('select', {
+                class: 'select',
+                id: 'status',
+                value: ColorSelect.value,
+                onchange: e => {
+                    ColorSelect.value = e.target.value;
+                }
+            }, [
+                Object.keys(Constants.ProjectColors).map(key => m('option', {
+                    style: 'background:' + Constants.ProjectColors[key],
+                    value: key
+                }, Constants.ProjectColors[key]))
+            ])
+        );
     }
 }
 
@@ -204,10 +211,10 @@ let ProjectCreateForm = {
 
 let ProjectCreate = {
     isDisplayed: false,
-    toggle: function() {
+    toggle: () => {
         ProjectCreate.isDisplayed = !ProjectCreate.isDisplayed;
     },
-    view: function() {
+    view: () => {
         return m('div', {
             class: 'project-create box px-6'
         }, [

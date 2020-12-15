@@ -4,12 +4,12 @@ var Issue = require('../models/Issue');
 
 let IssueList = {
     oninit: Issue.getList,
-    view: function() {
+    view: () => {
         return m('div', {
             class: 'issue-list'
         }, [
             m('div', {
-                class: 'header'
+                class: 'header issue',
             }, [
                 m('div', {
                         class: 'issue-id'
@@ -32,16 +32,16 @@ let IssueList = {
                     ' Summary '
                 ),
                 m('div', {
-                        class: 'issue-pic'
+                        class: 'issue-assignee'
                     },
-                    ' Person in Charge '
+                    ' Assignee '
                 )
             ]),
-            Issue.list.map(function(issue) {
+            Issue.list.map(issue => {
                 return m('div', {
                     class: 'issue',
-                    onclick() {
-                        // m.route.set('/dashboard');
+                    onclick: () => {
+                        m.route.set('/project/1/issue/' + issue.id);
                     }
                 }, [
                     m('div', {
@@ -73,13 +73,13 @@ let IssueList = {
                         issue.summary
                     ),
                     m('div', {
-                            class: 'issue-pic'
+                            class: 'issue-assignee'
                         },
-                        issue.pic
+                        issue.assignee
                     )
                 ])
             })
-        ])
+        ]);
     }
 }
 
