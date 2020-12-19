@@ -13,7 +13,10 @@ let Layout = {
                     'class': 'navbar-brand'
                 }, [
                     m('a', {
-                            'class': 'navbar-item is-size-5'
+                            'class': 'navbar-item is-size-5',
+                            onclick: () => {
+                                m.route.set('/dashboard');
+                            }
                         },
                         'Mini Issue Tracker'
                     ),
@@ -67,7 +70,7 @@ let Layout = {
                             }, [
                                 m('a', {
                                         'class': 'navbar-item',
-                                        onclick: function () {
+                                        onclick: function() {
                                             m.route.set('/dashboard');
                                         }
                                     },
@@ -78,7 +81,7 @@ let Layout = {
                                 }),
                                 m('a', {
                                         'class': 'navbar-item',
-                                        onclick: function () {
+                                        onclick: function() {
                                             m.route.set('/dashboard');
                                         }
                                     },
@@ -88,11 +91,55 @@ let Layout = {
                         ])
                     ]),
                     m('div', {
-                            'class': 'navbar-end'
-                        },
+                        'class': 'navbar-end'
+                    }, [
+                        m('a', {
+                            'class': 'navbar-item has-dropdow is-hoverable'
+                        }, [
+                            m('span', {
+                                    'class': 'icon'
+                                },
+                                m('i', {
+                                    'class': 'fas fa-bell',
+                                    'aria-hidden': 'true'
+                                })
+                            ),
+                            m('div', {
+                                'class': 'navbar-dropdown is-right'
+                            }, [
+                                m('div', {
+                                    'class': 'notification is-link is-light mb-2'
+                                }, [
+                                    m('button', {
+                                        'class': 'delete'
+                                    }),
+                                    m.trust('<strong>User A</strong> assigned <a>DB investigation</a> to you')
+                                ],
+                                ),
+                                m('div', {
+                                    'class': 'notification is-link is-light mb-2'
+                                }, [
+                                    m('button', {
+                                        'class': 'delete'
+                                    }),
+                                    m.trust('<strong>User A</strong> assigned <a>DB investigation</a> to you')
+                                ],
+                                ),
+                                m('div', {
+                                    'class': 'notification is-link is-light mb-2'
+                                }, [
+                                    m('button', {
+                                        'class': 'delete'
+                                    }),
+                                    m.trust('<strong>User A</strong> assigned <a>DB investigation</a> to you')
+                                ],
+                                )
+                            ])
+                        ]),
                         m('div', {
                             'class': 'navbar-item has-dropdown is-hoverable'
-                        }, [m('a', {
+                        }, [
+                            m('a', {
                                 'class': 'navbar-link'
                             }, [
                                 m('span', {
@@ -122,7 +169,7 @@ let Layout = {
                                 )
                             ])
                         ])
-                    )
+                    ])
                 ])
             ]),
             m('div', {
