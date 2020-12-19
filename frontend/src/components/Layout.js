@@ -1,56 +1,129 @@
 var m = require('mithril');
 
-var showLogout = false;
+var showBurgerMenu = false;
 
 let Layout = {
     view: function(vnode) {
-        return [m('div', {
-                class: 'nav'
+        return [m('nav', {
+                'class': 'navbar is-info',
+                'role': 'navigation',
+                'aria-label': 'main navigation'
             }, [
                 m('div', {
-                        class: 'nav-header'
-                    },
-                    m('div', {
-                            class: 'nav-title'
+                    'class': 'navbar-brand'
+                }, [
+                    m('a', {
+                            'class': 'navbar-item is-size-5'
                         },
-                        m('a', {
-                            onclick: () => {
-                                m.route.set('/dashboard');
-                            }
-                        }, 'Mini Issue Tracker')
-                    )
-                ),
-                m('ul', {
-                        class: 'nav-links'
-                    },
-                    m('li', {
-                        class: 'user-name',
-                        tabIndex: '-1',
+                        'Mini Issue Tracker'
+                    ),
+                    m('a', {
+                        'class': [
+                            'navbar-burger', showBurgerMenu ? 'is-active' : ''
+                        ].join(' '),
+                        'role': 'button',
+                        'aria-label': 'menu',
+                        'aria-expanded': 'false',
+                        'data-target': 'navBar',
                         onclick: function() {
-                            showLogout = !showLogout;
-                        },
-                        onblur: function() {
-                            showLogout = !showLogout;
+                            showBurgerMenu = !showBurgerMenu;
                         }
                     }, [
-                        m('i', {
-                            class: 'fas fa-user'
+                        m('span', {
+                            'aria-hidden': 'true'
                         }),
-                        'Profile'
-                    ], m('ul', {
-                            class: [
-                                'dropdown', !showLogout ? 'hidden' : ''
-                            ].join(" ")
-                        },
-                        m('li',
+                        m('span', {
+                            'aria-hidden': 'true'
+                        }),
+                        m('span', {
+                            'aria-hidden': 'true'
+                        })
+                    ])
+                ]),
+                m('div', {
+                    'class': [
+                        'navbar-menu', showBurgerMenu ? 'is-active' : ''
+                    ].join(' '),
+                    'id': 'navBar'
+                }, [
+                    m('div', {
+                        'class': 'navbar-start'
+                    }, [
+                        m('a', {
+                                'class': 'navbar-item'
+                            },
+                            'Dashboard'
+                        ),
+                        m('div', {
+                            'class': 'navbar-item has-dropdown is-hoverable'
+                        }, [
                             m('a', {
-                                    href: '#'
+                                    'class': 'navbar-link'
                                 },
-                                'Log out'
-                            )
-                        )
-                    ))
-                )
+                                'Projects'
+                            ),
+                            m('div', {
+                                'class': 'navbar-dropdown'
+                            }, [
+                                m('a', {
+                                        'class': 'navbar-item',
+                                        onclick: function () {
+                                            m.route.set('/dashboard');
+                                        }
+                                    },
+                                    'Recent'
+                                ),
+                                m('hr', {
+                                    'class': 'navbar-divider'
+                                }),
+                                m('a', {
+                                        'class': 'navbar-item',
+                                        onclick: function () {
+                                            m.route.set('/dashboard');
+                                        }
+                                    },
+                                    'View All Projects'
+                                )
+                            ])
+                        ])
+                    ]),
+                    m('div', {
+                            'class': 'navbar-end'
+                        },
+                        m('div', {
+                            'class': 'navbar-item has-dropdown is-hoverable'
+                        }, [m('a', {
+                                'class': 'navbar-link'
+                            }, [
+                                m('span', {
+                                        'class': 'icon'
+                                    },
+                                    m('i', {
+                                        'class': 'fas fa-user',
+                                        'aria-hidden': 'true'
+                                    })
+                                ),
+                                m('span',
+                                    'Admin'
+                                )
+                            ]),
+                            m('div', {
+                                'class': 'navbar-dropdown'
+                            }, [
+                                m('a', {
+                                        'class': 'navbar-item'
+                                    },
+                                    'Profile'
+                                ),
+                                m('a', {
+                                        'class': 'navbar-item'
+                                    },
+                                    'Log out'
+                                )
+                            ])
+                        ])
+                    )
+                ])
             ]),
             m('div', {
                 class: 'container pt-5'

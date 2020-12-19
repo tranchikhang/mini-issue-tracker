@@ -66,7 +66,7 @@ let LoginForm = {
             m('h1', {
                     class: 'has-background-link'
                 },
-                'Login'
+                'Mini Issue Tracker'
             ),
             // Passing component
             m(UserNameInput),
