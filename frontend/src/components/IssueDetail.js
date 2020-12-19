@@ -209,7 +209,7 @@ let IssueDetail = {
             m('div', {
                     class: 'description'
                 },
-                'DIV\'s are miscalculated.\r\nThe css rule clearly refers to an even or odd DIV, but instead all elements are counted, this includes the &lt;br&gt; elements. This leads to the situation, that the last two DIV get the same background color, which is not what was intended.\r\nExpected results:\r\nthe &lt;br&gt; are not referred to, so they do not count for the even or odd calculation of those DIV\'s. The last and the second last DIV should end up with different background colors.'
+                'DIV\'s are miscalculated.\r\nThe css rule clearly refers to an even or odd DIV, but instead all elements are counted, this includes the <br> elements. This leads to the situation, that the last two DIV get the same background color, which is not what was intended.\r\nExpected results:\r\nthe <br> are not referred to, so they do not count for the even or odd calculation of those DIV\'s. The last and the second last DIV should end up with different background colors.'
             )
         ])
     }
