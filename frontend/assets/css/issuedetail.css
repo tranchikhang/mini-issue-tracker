@@ -3,6 +3,16 @@
 	color: #fff;
 }
 
+.status.in-progress {
+	background-color: #fcb603;
+	color: #fff;
+}
+
+.status.in-review {
+	background-color: #03cefc;
+	color: #fff;
+}
+
 .status.resolved {
 	background-color: #48c774;
 	color: #fff;
@@ -13,10 +23,6 @@
 	color: rgba(0, 0, 0, .7);
 }
 
-.priority.medium {
-	background-color: #00d1b2;
-	color: #fff;
-}
 
 .priority.high {
 	background-color: #ffdd57;
@@ -35,4 +41,8 @@
 .issue-detail .attributes-item .label {
 	width: 170px;
 	float: left;
+}
+
+.description {
+	white-space: pre-line;
 }

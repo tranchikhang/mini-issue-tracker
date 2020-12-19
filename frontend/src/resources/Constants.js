@@ -2,8 +2,9 @@ export const IssueStatus = {
 	1: "Unconfirmed",
 	2: "Confirmed",
 	3: "In Progress",
-	4: "Resolved",
-	5: "Closed"
+	4: "In Review",
+	5: "Resolved",
+	6: "Closed"
 }
 
 export const IssuePriority = {

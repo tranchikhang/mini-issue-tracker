@@ -156,25 +156,61 @@ let IssueDetail = {
             m('h2', {
                     class: 'subtitle'
                 },
-                'Details'
+                'People'
             ),
             m('div', {
-                class: 'columns'
-            }),
-            m('div', {
-                class: 'description'
+                class: 'column'
             }, [
-                m('h2', {
-                        class: 'subtitle'
-                    },
-                    'Description'
-                ),
                 m('div', {
-                        class: ''
-                    },
-                    'Smart Attachments add-on is compatible with GoEdit add-on.With the junction of these two add-ons, you can directly edit files and keep each revision under the same document. Note! While trying to edit an attachment with GoEdit add-on, you will be prompted to download the application for processing attachments.'
-                )
-            ])
+                    class: 'attributes-item'
+                }, [
+                    m('strong', {
+                            class: 'label'
+                        },
+                        'Assignee'),
+                    m('span', {
+                            class: 'value'
+                        },
+                        IssueDetail.currentIssue.assignee
+                    )
+                ]),
+                m('div', {
+                    class: 'attributes-item'
+                }, [
+                    m('strong', {
+                            class: 'label'
+                        },
+                        'Reporter'),
+                    m('span', {
+                            class: 'value'
+                        },
+                        IssueDetail.currentIssue.assignee
+                    )
+                ]),
+                m('div', {
+                    class: 'attributes-item'
+                }, [
+                    m('strong', {
+                            class: 'label'
+                        },
+                        'Watchers'),
+                    m('span', {
+                            class: 'value'
+                        },
+                        3
+                    )
+                ])
+            ]),
+            m('h2', {
+                    class: 'subtitle'
+                },
+                'Description'
+            ),
+            m('div', {
+                    class: 'description'
+                },
+                'DIV\'s are miscalculated.\r\nThe css rule clearly refers to an even or odd DIV, but instead all elements are counted, this includes the &lt;br&gt; elements. This leads to the situation, that the last two DIV get the same background color, which is not what was intended.\r\nExpected results:\r\nthe &lt;br&gt; are not referred to, so they do not count for the even or odd calculation of those DIV\'s. The last and the second last DIV should end up with different background colors.'
+            )
         ])
     }
 }
