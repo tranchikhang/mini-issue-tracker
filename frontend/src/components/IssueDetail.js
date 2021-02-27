@@ -18,16 +18,18 @@ let IssueDetail = {
                 m('h1', {
                         class: 'title'
                     },
-                    'CSS layout error in login page'
+                    IssueDetail.currentIssue.summary
                 )),
             m('div', {
                     class: 'block'
                 },
                 m('div', {
-                        class: 'tabs'
+                        class: 'tabs is-boxed'
                     },
                     m('ul', [
-                        m('li', m('a', [
+                        m('li', {
+                            class: 'is-active'
+                        }, m('a', [
                             m('span', {
                                     class: 'icon'
                                 },
@@ -98,8 +100,8 @@ let IssueDetail = {
                     m('div', {
                         class: 'attributes-item'
                     }, [
-                        m('strong', {
-                                class: 'label'
+                        m('div', {
+                                class: 'label has-text-grey'
                             },
                             'Type'),
                         m('span', {
@@ -111,8 +113,8 @@ let IssueDetail = {
                     m('div', {
                         class: 'attributes-item'
                     }, [
-                        m('strong', {
-                                class: 'label'
+                        m('div', {
+                                class: 'label has-text-grey'
                             },
                             'Status'),
                         m('span', {
@@ -124,8 +126,8 @@ let IssueDetail = {
                     m('div', {
                         class: 'attributes-item'
                     }, [
-                        m('strong', {
-                                class: 'label'
+                        m('div', {
+                                class: 'label has-text-grey'
                             },
                             'Priority'),
                         m('span', {
@@ -141,8 +143,8 @@ let IssueDetail = {
                     m('div', {
                         class: 'attributes-item'
                     }, [
-                        m('strong', {
-                                class: 'label'
+                        m('div', {
+                                class: 'label has-text-grey'
                             },
                             'Assignee'),
                         m('span', {
@@ -164,8 +166,8 @@ let IssueDetail = {
                 m('div', {
                     class: 'attributes-item'
                 }, [
-                    m('strong', {
-                            class: 'label'
+                    m('div', {
+                            class: 'label has-text-grey'
                         },
                         'Assignee'),
                     m('span', {
@@ -177,8 +179,8 @@ let IssueDetail = {
                 m('div', {
                     class: 'attributes-item'
                 }, [
-                    m('strong', {
-                            class: 'label'
+                    m('div', {
+                            class: 'label has-text-grey'
                         },
                         'Reporter'),
                     m('span', {
@@ -190,8 +192,8 @@ let IssueDetail = {
                 m('div', {
                     class: 'attributes-item'
                 }, [
-                    m('strong', {
-                            class: 'label'
+                    m('div', {
+                            class: 'label has-text-grey'
                         },
                         'Watchers'),
                     m('span', {
