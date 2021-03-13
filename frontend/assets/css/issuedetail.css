@@ -1,48 +1,52 @@
+.status {
+    margin-right: 5px;
+}
+
 .status.confirmed {
-	background-color: #3273dc;
-	color: #fff;
+    color: #3273dc;
 }
 
 .status.in-progress {
-	background-color: #fcb603;
-	color: #fff;
+    color: #fcb603;
 }
 
 .status.in-review {
-	background-color: #03cefc;
-	color: #fff;
+    color: #03cefc;
 }
 
 .status.resolved {
-	background-color: #48c774;
-	color: #fff;
+    color: #48c774;
 }
 
 .status.closed {
-	background-color: #f5f5f5;
-	color: rgba(0, 0, 0, .7);
+    color: #f5f5f5;
 }
 
 
+.priority.medium {
+    background-color: #3e8ed0;
+    color: #fff;
+}
+
 .priority.high {
-	background-color: #ffdd57;
-	color: rgba(0, 0, 0, .7);
+    background-color: #ffdd57;
+    color: rgba(0, 0, 0, .7);
 }
 
 .priority.urgent {
-	background-color: #f14668;
-	color: #fff;
+    background-color: #f14668;
+    color: #fff;
 }
 
 .issue-detail .attributes-item {
-	clear: left;
+    clear: left;
 }
 
 .issue-detail .attributes-item .label {
-	width: 170px;
-	float: left;
+    width: 170px;
+    float: left;
 }
 
 .description {
-	white-space: pre-line;
+    white-space: pre-line;
 }

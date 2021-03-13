@@ -52,11 +52,10 @@ let IssueList = {
                     m('div', {
                             class: 'issue-status'
                         },
-                        m('span', {
-                                class: issue.statusClass
-                            },
-                            issue.status
-                        )
+                        m('i', {
+                            class: 'fa fa-circle ' + issue.statusClass
+                        }),
+                        issue.status
                     ),
                     m('div', {
                             class: 'issue-priority'

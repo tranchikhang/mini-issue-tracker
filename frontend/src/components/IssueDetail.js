@@ -24,7 +24,7 @@ let IssueDetail = {
                 class: 'block'
             }),
             m('h2', {
-                    class: 'title mt-5'
+                    class: 'subtitle mt-5'
                 },
                 'Details'
             ),
@@ -43,7 +43,7 @@ let IssueDetail = {
                             },
                             'Type'),
                         m('span', {
-                                class: 'value' + IssueDetail.currentIssue.typeClass
+                                class: IssueDetail.currentIssue.typeClass
                             },
                             IssueDetail.currentIssue.type
                         )
@@ -54,12 +54,12 @@ let IssueDetail = {
                         m('div', {
                                 class: 'label has-text-grey'
                             },
-                            'Status'),
-                        m('span', {
-                                class: 'value ' + IssueDetail.currentIssue.statusClass
-                            },
-                            IssueDetail.currentIssue.status
-                        )
+                            'Status'
+                        ),
+                        m('i', {
+                            class: 'fa fa-circle ' + IssueDetail.currentIssue.statusClass
+                        }),
+                        IssueDetail.currentIssue.status
                     ]),
                     m('div', {
                         class: 'attributes-item'
@@ -69,7 +69,7 @@ let IssueDetail = {
                             },
                             'Priority'),
                         m('span', {
-                                class: 'value ' + IssueDetail.currentIssue.priorityClass
+                                class: IssueDetail.currentIssue.priorityClass
                             },
                             IssueDetail.currentIssue.priority
                         )
@@ -85,65 +85,21 @@ let IssueDetail = {
                                 class: 'label has-text-grey'
                             },
                             'Assignee'),
-                        m('span', {
-                                class: 'value'
+                        m('span', IssueDetail.currentIssue.assignee)
+                    ]),
+                    m('div', {
+                        class: 'attributes-item'
+                    }, [
+                        m('div', {
+                                class: 'label has-text-grey'
                             },
-                            IssueDetail.currentIssue.assignee
-                        )
-                    ])
+                            'Reporter'),
+                        m('span', IssueDetail.currentIssue.assignee)
+                    ]),
                 ])
             ]),
             m('h2', {
-                    class: 'title mt-5'
-                },
-                'People'
-            ),
-            m('hr'),
-            m('div', {
-                class: 'column'
-            }, [
-                m('div', {
-                    class: 'attributes-item'
-                }, [
-                    m('div', {
-                            class: 'label has-text-grey'
-                        },
-                        'Assignee'),
-                    m('span', {
-                            class: 'value'
-                        },
-                        IssueDetail.currentIssue.assignee
-                    )
-                ]),
-                m('div', {
-                    class: 'attributes-item'
-                }, [
-                    m('div', {
-                            class: 'label has-text-grey'
-                        },
-                        'Reporter'),
-                    m('span', {
-                            class: 'value'
-                        },
-                        IssueDetail.currentIssue.assignee
-                    )
-                ]),
-                m('div', {
-                    class: 'attributes-item'
-                }, [
-                    m('div', {
-                            class: 'label has-text-grey'
-                        },
-                        'Watchers'),
-                    m('span', {
-                            class: 'value'
-                        },
-                        3
-                    )
-                ])
-            ]),
-            m('h2', {
-                    class: 'title mt-5'
+                    class: 'subtitle mt-5'
                 },
                 'Description'
             ),
@@ -154,7 +110,7 @@ let IssueDetail = {
                 IssueDetail.currentIssue.description
             ),
             m('h2', {
-                    class: 'title mt-5'
+                    class: 'subtitle mt-5'
                 },
                 'Discussion'
             ),
