@@ -16,81 +16,19 @@ let IssueDetail = {
                     class: 'block'
                 },
                 m('h1', {
-                        class: 'title'
+                        class: 'title mt-5'
                     },
                     IssueDetail.currentIssue.summary
                 )),
             m('div', {
-                    class: 'block'
-                },
-                m('div', {
-                        class: 'tabs is-boxed'
-                    },
-                    m('ul', [
-                        m('li', {
-                            class: 'is-active'
-                        }, m('a', [
-                            m('span', {
-                                    class: 'icon'
-                                },
-                                m('i', {
-                                    class: 'fas fa-edit'
-                                })),
-                            m('span', 'Edit')
-                        ])),
-                        m('li', m('a', [
-                            m('span', {
-                                    class: 'icon'
-                                },
-                                m('i', {
-                                    class: 'fas fa-comment'
-                                })),
-                            m('span', 'Comment')
-                        ])),
-                        m('li', m('a', [
-                            m('span', {
-                                    class: 'icon'
-                                },
-                                m('i', {
-                                    class: 'fas fa-user'
-                                })),
-                            m('span', 'Assign')
-                        ])),
-                        m('li', m('a', [
-                            m('span', {
-                                    class: 'icon'
-                                },
-                                m('i', {
-                                    class: 'fas fa-eye'
-                                })),
-                            m('span', 'Watch issue')
-                        ])),
-                        m('li', m('a', [
-                            m('span', {
-                                    class: 'icon'
-                                },
-                                m('i', {
-                                    class: 'fas fa-code-branch'
-                                })),
-                            m('span', 'Create sub-task')
-                        ])),
-                        m('li', m('a', [
-                            m('span', {
-                                    class: 'icon'
-                                },
-                                m('i', {
-                                    class: 'fas fa-clone'
-                                })),
-                            m('span', 'Clone')
-                        ]))
-                    ])
-                )
-            ),
+                class: 'block'
+            }),
             m('h2', {
-                    class: 'subtitle'
+                    class: 'title mt-5'
                 },
                 'Details'
             ),
+            m('hr'),
             m('div', {
                 class: 'columns'
             }, [
@@ -156,10 +94,11 @@ let IssueDetail = {
                 ])
             ]),
             m('h2', {
-                    class: 'subtitle'
+                    class: 'title mt-5'
                 },
                 'People'
             ),
+            m('hr'),
             m('div', {
                 class: 'column'
             }, [
@@ -204,15 +143,93 @@ let IssueDetail = {
                 ])
             ]),
             m('h2', {
-                    class: 'subtitle'
+                    class: 'title mt-5'
                 },
                 'Description'
             ),
+            m('hr'),
             m('div', {
                     class: 'description'
                 },
-                'DIV\'s are miscalculated.\r\nThe css rule clearly refers to an even or odd DIV, but instead all elements are counted, this includes the <br> elements. This leads to the situation, that the last two DIV get the same background color, which is not what was intended.\r\nExpected results:\r\nthe <br> are not referred to, so they do not count for the even or odd calculation of those DIV\'s. The last and the second last DIV should end up with different background colors.'
-            )
+                IssueDetail.currentIssue.description
+            ),
+            m('h2', {
+                    class: 'title mt-5'
+                },
+                'Discussion'
+            ),
+            m('hr'),
+            m('div', {
+                class: 'columns'
+            }, [
+                m('div', {
+                    class: 'column is-half'
+                }, m('article', {
+                    'class': 'media'
+                }, [
+                    m('figure', {
+                            'class': 'media-left'
+                        },
+                        m('p', {
+                                'class': 'image is-64x64'
+                            },
+                            m('img', {
+                                'class': 'avatar',
+                                'src': 'frontend/assets/img/img_avatar.png'
+                            })
+                        )
+                    ),
+                    m('div', {
+                        'class': 'media-content'
+                    }, [
+                        m('div', {
+                                'class': 'field'
+                            },
+                            m('p', {
+                                    'class': 'control'
+                                },
+                                m('textarea', {
+                                    'class': 'textarea',
+                                    'placeholder': 'Add a comment...'
+                                })
+                            )
+                        ),
+                        m('nav', {
+                            'class': 'level'
+                        }, [
+                            m('div', {
+                                    'class': 'level-left'
+                                },
+                                m('div', {
+                                        'class': 'level-item'
+                                    },
+                                    m('a', {
+                                            'class': 'button is-info'
+                                        },
+                                        'Submit'
+                                    )
+                                )
+                            ),
+                            m('div', {
+                                    'class': 'level-right'
+                                },
+                                m('div', {
+                                        'class': 'level-item'
+                                    },
+                                    m('label', {
+                                        'class': 'checkbox'
+                                    }, [
+                                        m('input', {
+                                            'type': 'checkbox'
+                                        }),
+                                        ' Press enter to submit '
+                                    ])
+                                )
+                            )
+                        ])
+                    ])
+                ]))
+            ])
         ])
     }
 }

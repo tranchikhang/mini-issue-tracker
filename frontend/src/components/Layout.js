@@ -53,7 +53,10 @@ let Layout = {
                         'class': 'navbar-start'
                     }, [
                         m('a', {
-                                'class': 'navbar-item'
+                                'class': 'navbar-item',
+                                onclick: () => {
+                                    m.route.set('/dashboard');
+                                }
                             },
                             'Dashboard'
                         ),
@@ -114,8 +117,7 @@ let Layout = {
                                         'class': 'delete'
                                     }),
                                     m.trust('<strong>User A</strong> assigned <a>DB investigation</a> to you')
-                                ],
-                                ),
+                                ], ),
                                 m('div', {
                                     'class': 'notification is-link is-light mb-2'
                                 }, [
@@ -123,8 +125,7 @@ let Layout = {
                                         'class': 'delete'
                                     }),
                                     m.trust('<strong>User A</strong> assigned <a>DB investigation</a> to you')
-                                ],
-                                ),
+                                ], ),
                                 m('div', {
                                     'class': 'notification is-link is-light mb-2'
                                 }, [
@@ -132,8 +133,7 @@ let Layout = {
                                         'class': 'delete'
                                     }),
                                     m.trust('<strong>User A</strong> assigned <a>DB investigation</a> to you')
-                                ],
-                                )
+                                ], )
                             ])
                         ]),
                         m('div', {
