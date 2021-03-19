@@ -1,0 +1,11 @@
+.module-list .module {
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.module-list .module {
+    align-items: center;
+}
+
+.module-list .feature {
+    align-items: center;
+}

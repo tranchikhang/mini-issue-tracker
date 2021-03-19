@@ -1,10 +1,9 @@
 var FeatureService = require('../services/FeatureService');
 
 var Feature = {
-    list: [],
-    getList: function() {
-        Feature.list = FeatureService.getAll();
-    },
+    getByModuleID: function(moduleId) {
+        return FeatureService.getAll().filter(feature => feature.module_id == moduleId);
+    }
 }
 
 module.exports = Feature

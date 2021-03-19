@@ -10,14 +10,10 @@ var ModuleService = {
             "status": "Ongoing"
         }, {
             "id": 3,
-            "name": "Data transfer",
-            "status": "Ongoing"
-        }, {
-            "id": 4,
             "name": "Internal resources",
             "status": "Pending"
         }, {
-            "id": 5,
+            "id": 4,
             "name": "Background Process",
             "status": "Ongoing"
         }]
