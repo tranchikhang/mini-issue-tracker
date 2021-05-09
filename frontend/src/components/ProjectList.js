@@ -10,7 +10,7 @@ let ProjectList = {
             'class': 'project-list'
         }, [
             m('div', {
-                'class': 'project header'
+                'class': 'header'
             }, [
                 m('div', {
                         'class': 'project-code'
