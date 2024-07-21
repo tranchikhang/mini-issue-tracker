@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack src/index.js --output ../app.js -d --watch",
-    "build": "webpack src/index.js --output ../app.js -p"
+    "start": "webpack ./src/index.js --output-path ../ --output-filename app.js --mode development --watch",
+    "build": "webpack ./src/index.js --output-path ../ --output-filename app.js -p"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +14,7 @@
     "mithril": "^2.0.4"
   },
   "devDependencies": {
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4"
   }
 }
