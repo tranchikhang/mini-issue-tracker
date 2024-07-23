@@ -6,7 +6,7 @@ var Constants = require('../resources/Constants.js');
 
 let ProjectList = {
     oninit: Project.getList,
-    view: function() {
+    view: () => {
         return m('div', {
             'class': 'project-list'
         }, [
@@ -73,7 +73,7 @@ let ProjectList = {
                     m('div', {
                             'class': 'project-status'
                         },
-                        i18n.t('status').project.status
+                        i18n.t('status')[project.status]
                     )
                 ])
             })

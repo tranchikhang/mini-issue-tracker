@@ -25,15 +25,6 @@ let i18n = {
         i18n.currentLocale = newLocale;
         i18n.messageUrl = i18n.messageUrl.replace("{locale}", i18n.currentLocale);
         i18n.messages = require('../../' + i18n.messageUrl);
-        m.request({
-                method: "GET",
-                url: i18n.messageUrl,
-                // async: false
-            })
-            .then(function(result) {
-                console.log(result);
-                i18n.messages = result;
-            });
     }
 }
 

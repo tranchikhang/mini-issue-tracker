@@ -131,7 +131,7 @@ let IssueDetail = {
                             },
                             m('img', {
                                 'class': 'avatar',
-                                'src': 'frontend/assets/img/img_avatar.png'
+                                'src': 'assets/img/img_avatar.png'
                             })
                         )
                     ),

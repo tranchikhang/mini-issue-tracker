@@ -4,7 +4,7 @@ var ProjectList = require('./ProjectList.js');
 var ProjectCreate = require('./ProjectCreate.js');
 
 let Dashboard = {
-    view: function() {
+    view: () => {
         return [
             m('div', {
                 class: 'dashboard-title columns'
