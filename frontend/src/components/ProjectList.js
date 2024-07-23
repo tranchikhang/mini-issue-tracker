@@ -1,6 +1,7 @@
 var m = require('mithril');
 
 var Project = require('../models/Project');
+var i18n = require('../components/common/i18n');
 var Constants = require('../resources/Constants.js');
 
 let ProjectList = {
@@ -72,7 +73,7 @@ let ProjectList = {
                     m('div', {
                             'class': 'project-status'
                         },
-                        project.status
+                        i18n.t('status').project.status
                     )
                 ])
             })

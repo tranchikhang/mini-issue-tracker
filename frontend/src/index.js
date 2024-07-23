@@ -6,6 +6,10 @@ var Dashboard = require('./components/Dashboard');
 var Project = require('./components/Project');
 var IssueList = require('./components/IssueList');
 var IssueDetail = require('./components/IssueDetail');
+var i18n = require('./components/common/i18n');
+
+
+i18n.init();
 
 m.route(document.body, '/login', {
     '/login': {

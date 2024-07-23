@@ -4,82 +4,82 @@ var ProjectService = {
             "id": 1,
             "color": 1,
             "code": "RT",
-            "name": "Ronstring",
+            "name": "ECサイト構築",
             "client": "Kessler LLC",
             "manager": "Teodoro O'Cleary",
-            "status": "Finished"
+            "status": 3
         }, {
             "id": 2,
             "color": 3,
             "code": "LT",
-            "name": "Lotstring",
+            "name": "Redmineプラグインの開発",
             "client": "Skibox",
             "manager": "Melly Dumbellow",
-            "status": "Ongoing"
+            "status": 2
         }, {
             "id": 3,
             "color": 5,
             "code": "TLD",
-            "name": "Trippledex",
+            "name": "UI・UXデザイン",
             "client": "Kirlin Group",
             "manager": "Fay Lutty",
-            "status": "Ongoing"
+            "status": 2
         }, {
             "id": 4,
             "color": 7,
             "code": "HTT",
-            "name": "Hatity",
+            "name": "互換性テスト",
             "client": "Yakitri",
             "manager": "Caddric Gaddes",
-            "status": "Ongoing"
+            "status": 2
         }, {
             "id": 5,
             "color": 2,
             "code": "SLB",
-            "name": "Solarbreeze",
+            "name": "パフォーマンス検証用",
             "client": "Tagchat",
             "manager": "Rici Charette",
-            "status": "Pending"
+            "status": 4
         }, {
             "id": 6,
             "color": 2,
             "code": "HLDL",
-            "name": "Holdlamis",
+            "name": "新規事業アプリの開発",
             "client": "Haley and Sons",
             "manager": "Pablo Pauleau",
-            "status": "Ongoing"
+            "status": 1
         }, {
             "id": 7,
             "color": 3,
             "code": "BTC",
-            "name": "Bytecard",
+            "name": "行政アプリの開発",
             "client": "Bergnaum and Sons",
             "manager": "Rianon Bariball",
-            "status": "Ongoing"
+            "status": 2
         }, {
             "id": 8,
             "color": 6,
             "code": "VYT",
-            "name": "Voyatouch",
+            "name": "商品管理システム",
             "client": "Orn-Morar",
             "manager": "Ronda Burmingham",
-            "status": "Ongoing"
+            "status": 5
         }, {
             "id": 9,
             "color": 4,
             "code": "TRF",
-            "name": "Treeflex",
+            "name": "外部連携",
             "client": "Reilly-Franecki",
             "manager": "Jeremiah Jaye",
-            "status": "Ongoing"
+            "status": 2
         }, , {
             "id": 10,
             "color": 1,
             "code": "ZMT",
-            "name": "Zamit",
+            "name": "CRM",
             "client": " Funk and Sons",
             "manager": "Corella Camel",
-            "status": "Ongoing"
+            "status": 2
         }]
     },
 }
