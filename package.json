@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack ./src/index.js --output-path ../ --output-filename app.js --mode development --watch",
-    "build": "webpack ./src/index.js --output-path ../ --output-filename app.js -p"
+    "start": "webpack ./src/index.js --output-path ./ --output-filename app.js --mode development --watch",
+    "build": "webpack ./src/index.js --output-path ./ --output-filename app.js -p"
   },
   "keywords": [],
   "author": "",
