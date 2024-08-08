@@ -1,6 +1,9 @@
 var m = require('mithril');
 
 var Issue = require('../models/Issue');
+var i18n = require('../components/common/i18n');
+var Constants = require('../resources/Constants.js');
+
 
 let IssueList = {
     oninit: Issue.getList,
@@ -19,7 +22,7 @@ let IssueList = {
                 m('div', {
                         class: 'issue-status'
                     },
-                    ' Status '
+                    i18n.t('status')
                 ),
                 m('div', {
                         class: 'issue-priority'
@@ -41,7 +44,7 @@ let IssueList = {
                 return m('div', {
                     class: 'issue',
                     onclick: () => {
-                        m.route.set('/project/1/issue/' + issue.id);
+                        // m.route.set('/project/1/issue/' + issue.id);
                     }
                 }, [
                     m('div', {
@@ -52,10 +55,7 @@ let IssueList = {
                     m('div', {
                             class: 'issue-status'
                         },
-                        m('i', {
-                            class: 'fa fa-circle ' + issue.statusClass
-                        }),
-                        issue.status
+                        i18n.t('status_value.' + issue.status)
                     ),
                     m('div', {
                             class: 'issue-priority'
@@ -63,7 +63,7 @@ let IssueList = {
                         m('span', {
                                 class: issue.priorityClass
                             },
-                            issue.priority
+                            i18n.t('priority.' + issue.priority)
                         )
                     ),
                     m('div', {

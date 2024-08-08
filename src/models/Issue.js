@@ -1,19 +1,17 @@
 var IssueService = require('../services/IssueService');
 var Constants = require('../resources/Constants.js');
+var i18n = require('../components/common/i18n');
 
 var Issue = {
     list: [],
     getList: function() {
         Issue.list = IssueService.getAll();
         Issue.list = Issue.list.map(obj => {
-            obj.status = Constants.IssueStatus[obj.status].replace(' ', '-');
-            obj.statusClass = 'status ' + obj.status.toLowerCase();
+            // obj.statusClass = 'status ' + Constants.Status[obj.status].toLowerCase();
 
-            obj.type = Constants.IssueType[obj.type];
-            obj.typeClass = 'type ' + obj.type.toLowerCase();
+            // obj.typeClass = 'type ' + Constants.Priority[obj.priority].toLowerCase();
 
-            obj.priority = Constants.IssuePriority[obj.priority];
-            obj.priorityClass = 'priority ' + obj.priority.toLowerCase();
+            obj.priorityClass = 'priority ' + Constants.Priority[obj.priority].toLowerCase();
             return obj;
         });
     },

@@ -7,73 +7,75 @@ var Constants = require('../resources/Constants.js');
 let ProjectList = {
     oninit: Project.getList,
     view: () => {
-        return m('div', {
-            'class': 'project-list'
+        return m('table', {
+            'class': 'project-list table is-fullwidth'
         }, [
-            m('div', {
-                'class': 'header'
+            m('thead', {
+                'class': ''
+            }, m('tr', {
+                'class': ''
             }, [
-                m('div', {
+                m('th', {
                         'class': 'project-code'
                     },
-                    ' Project Code '
+                    i18n.t('project.code')
                 ),
-                m('div', {
+                m('th', {
                         'class': 'project-name'
                     },
-                    ' Project Name '
+                    i18n.t('project.name')
                 ),
-                m('div', {
+                m('th', {
                         'class': 'project-client'
                     },
-                    ' Client '
+                    i18n.t('client')
                 ),
-                m('div', {
+                m('th', {
                         'class': 'project-manager'
                     },
-                    ' Manager '
+                    i18n.t('manager')
                 ),
-                m('div', {
+                m('th', {
                         'class': 'project-status'
                     },
-                    ' Status '
+                    i18n.t('status')
                 ),
-                m('div', {
+                m('th', {
                         'class': 'project-action'
                     },
                     ''
                 )
-            ]),
+            ])),
             Project.list.map(function(project) {
-                return m('div', {
-                    'class': 'project project-' + Constants.ProjectColors[project.color].toLowerCase()
+                return m('tr', {
+                    'class': 'project-' + Constants.ProjectColors[project.color].toLowerCase()
                 }, [
-                    m('div', {
+                    m('td', {
                             'class': 'project-code'
                         },
                         project.code
                     ),
-                    m('div', {
+                    m('td', {
                         'class': 'project-name'
                     }, m('a', {
                         onclick: () => {
                             m.route.set('/project/1');
                         }
                     }, project.name)),
-                    m('div', {
+                    m('td', {
                             'class': 'project-client'
                         },
                         project.client
                     ),
-                    m('div', {
+                    m('td', {
                             'class': 'project-manager'
                         },
                         project.manager
                     ),
-                    m('div', {
+                    m('td', {
                             'class': 'project-status'
                         },
-                        i18n.t('status')[project.status]
+                        i18n.t('status' + '.' + project.status)
                     )
                 ])
             })

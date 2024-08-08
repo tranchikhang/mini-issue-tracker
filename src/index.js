@@ -27,11 +27,6 @@ m.route(document.body, '/login', {
             return m(Layout, m(Project));
         },
     },
-    '/project/:id/module/:id': {
-        render: function(vnode) {
-            return m(Layout, m(IssueList));
-        },
-    },
     '/project/:id/issue/:id': {
         render: function(vnode) {
             return m(Layout, m(IssueDetail, vnode.attrs));

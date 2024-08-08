@@ -1,9 +1,10 @@
 var m = require('mithril');
-var en = require('../../lang/en.json');
+var en = require('../../resources/lang/message.en.json');
+var jp = require('../../resources/lang/message.jp.json');
 
 let i18n = {
-    defaultLocale: "en",
-    messageUrl: "lang/{locale}.json",
+    defaultLocale: "jp",
+    messageUrl: "resources/lang/message.{locale}.json",
     messages: {},
 
     init: function() {
@@ -15,7 +16,7 @@ let i18n = {
     },
 
     t: function(key) {
-        return i18n.messages[key] || key;
+        return key.split('.').reduce((a, b) => a[b], i18n.messages) || key;
     },
 
     setLocale: function(newLocale) {

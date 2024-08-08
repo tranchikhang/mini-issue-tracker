@@ -1,0 +1,29 @@
+{
+    "status_value": {
+        "1": "New",
+        "2": "In progress",
+        "3": "Completed",
+        "4": "Pending",
+        "5": "Rejected"
+    },
+    "project": {
+        "code": "Project code",
+        "name": "Project name"
+    },
+    "priority": {
+        "1": "Low",
+        "2": "Medium",
+        "3": "High",
+        "4": "Urgent"
+    },
+    "issue": {
+        "type": {
+            "1": "Improvement",
+            "2": "New Feature",
+            "3": "Bug"
+        }
+    },
+    "manager": "manager",
+    "status": "status",
+    "client": "client"
+}

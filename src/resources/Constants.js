@@ -1,32 +1,26 @@
-export const IssueStatus = {
-	1: "Unconfirmed",
-	2: "Confirmed",
-	3: "In Progress",
-	4: "In Review",
-	5: "Resolved",
-	6: "Closed"
-}
-
-export const IssuePriority = {
-	1: "Low",
-	2: "Medium",
-	3: "High",
-	4: "Urgent"
-};
+var en = require('./lang/message.en.json');
 
 export const ProjectColors = {
-	1: "Red",
-	2: "Indigo",
-	3: "Blue",
-	4: "Teal",
-	5: "Green",
-	6: "Yellow",
-	7: "Orange",
-	8: "Brown"
+    1: "Red",
+    2: "Indigo",
+    3: "Blue",
+    4: "Teal",
+    5: "Green",
+    6: "Yellow",
+    7: "Orange",
+    8: "Brown"
+};
+export const Priority = {
+    "1": en['priority']['1'],
+    "2": en['priority']['2'],
+    "3": en['priority']['3'],
+    "4": en['priority']['4']
 };
 
-export const IssueType = {
-	1: "Improvement",
-	2: "New Feature",
-	3: "Bug"
-}
+export const Status = {
+    "1": en['status_value']['1'],
+    "2": en['status_value']['2'],
+    "3": en['status_value']['3'],
+    "4": en['status_value']['4'],
+    "5": en['status_value']['5']
+};

@@ -1,10 +1,10 @@
 var m = require('mithril');
 
 var IssueList = require('./IssueList.js');
-var ModuleList = require('./ModuleList.js');
+var IssueList = require('./IssueList.js');
 
 module.exports = {
     view: function() {
-        return m(ModuleList)
+        return m(IssueList)
     }
 }

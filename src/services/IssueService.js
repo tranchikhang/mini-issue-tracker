@@ -57,7 +57,7 @@ var IssueService = {
             "description": "IMHO the simple app is an excellent introduction to mithril; however it falls down in some critical places for the uninitiated:\r\n\r\nSaves to the free heroku service don't always work, which could lead a noob to think — quite reasonably — that the framework itself is failing. Or that they've failed to duplicate the code properly. There is nothing that alerts the dev that saves aren't really happening. If the tutorial is intended to be the newcomer's first real experience with mithril, I would contend that this breakage in functionality is crippling to the framework's potential reach. The tutorial must be airtight.\r\n\r\nThe code as it stands never updates the local cache. This is, in my experience, one of the great potential pitfalls for noobs.\r\n\r\nWhen we navigate to UserForm, we retrieve the User from the webservice, and not from our local cache. This enables the scenario of navigating directly to the UserForm without first viewing the list, but it means we're editing a separate object rather than the one which may already exist in our local cache (User.list).\r\n\r\nThe entire list is retrieved every time we navigate to UserList."
         }, {
             "id": 6,
-            "status": 6,
+            "status": 1,
             "type": 3,
             "summary": "m.route.set drops query strings with same key but different values",
             "assignee": "Ramon Yurtsev",
