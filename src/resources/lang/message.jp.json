@@ -11,6 +11,7 @@
         "name": "名前"
     },
     "priority": {
+        "label": "優先度",
         "1": "低",
         "2": "中",
         "3": "高",
@@ -25,5 +26,15 @@
     },
     "manager": "管理者",
     "status": "ステータス",
-    "client": "クライアント"
+    "client": "クライアント",
+    "assignee": "担当者",
+    "reporter": "報告者",
+    "type": "種類",
+    "detail": "詳細",
+    "description": "説明",
+    "discussion": "ディスカッション",
+    "creted_date": "作成日",
+    "modified_date": "更新日",
+    "due_date": "期限日",
+    "submit": "Submit"
 }

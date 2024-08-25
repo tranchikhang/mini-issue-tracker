@@ -1,6 +1,7 @@
 var m = require('mithril');
 
 var showBurgerMenu = false;
+var i18n = require('../components/common/i18n');
 
 let Layout = {
     view: function(vnode) {
@@ -134,6 +135,42 @@ let Layout = {
                                     }),
                                     m.trust('<strong>User A</strong> assigned <a>DB investigation</a> to you')
                                 ], )
+                            ])
+                        ]),
+                        m('div', {
+                            'class': 'navbar-item has-dropdown is-hoverable'
+                        }, [
+                            m('a', {
+                                'class': 'navbar-link'
+                            }, [
+                                m('span', {
+                                        'class': 'icon'
+                                    },
+                                    m('i', {
+                                        'class': 'fa fas fa-language',
+                                        'aria-hidden': 'true'
+                                    })
+                                )
+                            ]),
+                            m('div', {
+                                'class': 'navbar-dropdown'
+                            }, [
+                                m('a', {
+                                        'class': 'navbar-item',
+                                        onclick: function() {
+                                            i18n.setLocale('jp');
+                                        },
+                                    },
+                                    'Japanese'
+                                ),
+                                m('a', {
+                                        'class': 'navbar-item',
+                                        onclick: function() {
+                                            i18n.setLocale('en');
+                                        },
+                                    },
+                                    'English'
+                                )
                             ])
                         ]),
                         m('div', {

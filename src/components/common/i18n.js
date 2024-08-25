@@ -3,7 +3,7 @@ var en = require('../../resources/lang/message.en.json');
 var jp = require('../../resources/lang/message.jp.json');
 
 let i18n = {
-    defaultLocale: "jp",
+    defaultLocale: "en",
     messageUrl: "resources/lang/message.{locale}.json",
     messages: {},
 

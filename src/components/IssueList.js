@@ -6,7 +6,11 @@ var Constants = require('../resources/Constants.js');
 
 
 let IssueList = {
-    oninit: Issue.getList,
+    projectId: null,
+    oninit: function(vnode) {
+        projectId = vnode.attrs.id;
+        Issue.getList(projectId);
+    },
     view: () => {
         return m('div', {
             class: 'issue-list'
@@ -44,7 +48,7 @@ let IssueList = {
                 return m('div', {
                     class: 'issue',
                     onclick: () => {
-                        // m.route.set('/project/1/issue/' + issue.id);
+                        m.route.set('/project/1/issue/' + issue.id);
                     }
                 }, [
                     m('div', {
@@ -61,7 +65,7 @@ let IssueList = {
                             class: 'issue-priority'
                         },
                         m('span', {
-                                class: issue.priorityClass
+                                class: 'priority ' + Constants.Priority[issue.priority].toLowerCase()
                             },
                             i18n.t('priority.' + issue.priority)
                         )

@@ -1,6 +1,8 @@
 var m = require('mithril');
 
 var Issue = require('../models/Issue');
+var Helper = require('./common/Helper');
+var i18n = require('../components/common/i18n');
 
 let IssueDetail = {
     currentIssue: null,
@@ -12,21 +14,37 @@ let IssueDetail = {
         return m('div', {
             class: 'issue-detail'
         }, [
+            m('button', {
+                class: 'button'
+            }, [
+                m('span', {
+                    class: 'icon is-small',
+                    onclick: () => {
+                        console.log(vnode.attrs.id)
+                    }
+                }, [
+                    m('i', {
+                        class: 'fa fa-sharp fa-solid fa-arrow-left'
+                    })
+                ])
+            ]),
             m('div', {
-                    class: 'block'
-                },
+                class: 'block'
+            }, [
                 m('h1', {
                         class: 'title mt-5'
                     },
                     IssueDetail.currentIssue.summary
-                )),
+                ),
+                m("p", IssueDetail.currentIssue.reporter)
+            ]),
             m('div', {
                 class: 'block'
             }),
             m('h2', {
                     class: 'subtitle mt-5'
                 },
-                'Details'
+                i18n.t('detail')
             ),
             m('hr'),
             m('div', {
@@ -41,25 +59,22 @@ let IssueDetail = {
                         m('div', {
                                 class: 'label has-text-grey'
                             },
-                            'Type'),
+                            i18n.t('type')),
                         m('span', {
                                 class: IssueDetail.currentIssue.typeClass
                             },
-                            IssueDetail.currentIssue.type
+                            i18n.t('issue.type.' + IssueDetail.currentIssue.type)
                         )
                     ]),
                     m('div', {
                         class: 'attributes-item'
                     }, [
                         m('div', {
-                                class: 'label has-text-grey'
+                                class: 'label has-text-grey issue-status'
                             },
-                            'Status'
+                            i18n.t('status')
                         ),
-                        m('i', {
-                            class: 'fa fa-circle ' + IssueDetail.currentIssue.statusClass
-                        }),
-                        IssueDetail.currentIssue.status
+                        m('span', i18n.t('status_value.' + IssueDetail.currentIssue.status))
                     ]),
                     m('div', {
                         class: 'attributes-item'
@@ -67,12 +82,21 @@ let IssueDetail = {
                         m('div', {
                                 class: 'label has-text-grey'
                             },
-                            'Priority'),
+                            i18n.t('priority.label')),
                         m('span', {
                                 class: IssueDetail.currentIssue.priorityClass
                             },
-                            IssueDetail.currentIssue.priority
+                            i18n.t('priority.' + IssueDetail.currentIssue.priority)
                         )
+                    ]),
+                    m('div', {
+                        class: 'attributes-item'
+                    }, [
+                        m('div', {
+                                class: 'label has-text-grey'
+                            },
+                            i18n.t('assignee')),
+                        m('span', IssueDetail.currentIssue.assignee)
                     ])
                 ]),
                 m('div', {
@@ -84,8 +108,8 @@ let IssueDetail = {
                         m('div', {
                                 class: 'label has-text-grey'
                             },
-                            'Assignee'),
-                        m('span', IssueDetail.currentIssue.assignee)
+                            i18n.t('creted_date')),
+                        m('span', Helper.convertDateTime(IssueDetail.currentIssue.created))
                     ]),
                     m('div', {
                         class: 'attributes-item'
@@ -93,15 +117,24 @@ let IssueDetail = {
                         m('div', {
                                 class: 'label has-text-grey'
                             },
-                            'Reporter'),
-                        m('span', IssueDetail.currentIssue.assignee)
+                            i18n.t('modified_date')),
+                        m('span', Helper.convertDateTime(IssueDetail.currentIssue.modified))
                     ]),
+                    m('div', {
+                        class: 'attributes-item'
+                    }, [
+                        m('div', {
+                                class: 'label has-text-grey'
+                            },
+                            i18n.t('due_date')),
+                        m('span', Helper.convertDateTime(IssueDetail.currentIssue.due))
+                    ])
                 ])
             ]),
             m('h2', {
                     class: 'subtitle mt-5'
                 },
-                'Description'
+                i18n.t('description')
             ),
             m('hr'),
             m('div', {
@@ -112,7 +145,7 @@ let IssueDetail = {
             m('h2', {
                     class: 'subtitle mt-5'
                 },
-                'Discussion'
+                i18n.t('discussion')
             ),
             m('hr'),
             m('div', {
@@ -123,18 +156,6 @@ let IssueDetail = {
                 }, m('article', {
                     'class': 'media'
                 }, [
-                    m('figure', {
-                            'class': 'media-left'
-                        },
-                        m('p', {
-                                'class': 'image is-64x64'
-                            },
-                            m('img', {
-                                'class': 'avatar',
-                                'src': 'assets/img/img_avatar.png'
-                            })
-                        )
-                    ),
                     m('div', {
                         'class': 'media-content'
                     }, [
@@ -145,8 +166,7 @@ let IssueDetail = {
                                     'class': 'control'
                                 },
                                 m('textarea', {
-                                    'class': 'textarea',
-                                    'placeholder': 'Add a comment...'
+                                    'class': 'textarea'
                                 })
                             )
                         ),

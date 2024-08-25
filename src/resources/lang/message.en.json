@@ -11,6 +11,7 @@
         "name": "Project name"
     },
     "priority": {
+        "label": "Priority",
         "1": "Low",
         "2": "Medium",
         "3": "High",
@@ -23,7 +24,17 @@
             "3": "Bug"
         }
     },
-    "manager": "manager",
-    "status": "status",
-    "client": "client"
+    "manager": "Manager",
+    "status": "Status",
+    "client": "Client",
+    "assignee": "Assignee",
+    "reporter": "Reporter",
+    "type": "Type",
+    "detail": "Details",
+    "description": "Description",
+    "discussion": "Discussion",
+    "creted_date": "Created date",
+    "modified_date": "Modified date",
+    "due_date": "Due date",
+    "submit": "送信"
 }
