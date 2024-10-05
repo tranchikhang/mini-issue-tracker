@@ -1,9 +1,8 @@
-var m = require('mithril');
+import m from 'mithril';
+import ProjectList from './ProjectList.js';
+import ProjectCreate from './ProjectCreate.js';
 
-var ProjectList = require('./ProjectList.js');
-var ProjectCreate = require('./ProjectCreate.js');
-
-let Dashboard = {
+const Dashboard = {
     view: () => {
         return [
             m('div', {
@@ -37,4 +36,4 @@ let Dashboard = {
     }
 }
 
-module.exports = Dashboard
+export default Dashboard;

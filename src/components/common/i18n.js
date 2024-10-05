@@ -1,14 +1,16 @@
-var m = require('mithril');
-var en = require('../../resources/lang/message.en.json');
-var jp = require('../../resources/lang/message.jp.json');
+import m from 'mithril';
+import en from '../../resources/lang/message.en.json';
+import jp from '../../resources/lang/message.jp.json';
+import config from '../../config/config';
 
 let i18n = {
-    defaultLocale: "en",
+    defaultLocale: config.DEFAULT_LOCALE,
     messageUrl: "resources/lang/message.{locale}.json",
     messages: {},
+    currentLocale: '',
 
     init: function() {
-        i18n.setLocale(i18n.getDefaultLocale());
+        return i18n.setLocale(i18n.getDefaultLocale());
     },
 
     getDefaultLocale: function() {
@@ -21,12 +23,20 @@ let i18n = {
 
     setLocale: function(newLocale) {
         if (i18n.currentLocale === newLocale) {
-            return;
+            return Promise.resolve();
         }
         i18n.currentLocale = newLocale;
         i18n.messageUrl = i18n.messageUrl.replace("{locale}", i18n.currentLocale);
-        i18n.messages = require('../../' + i18n.messageUrl);
+        
+        return m.request({
+            method: 'GET',
+            url: `${config.LOCALIZATION_URL}message.${i18n.currentLocale}.json`
+        })
+        .then(function(result) {
+            i18n.messages = result;
+            console.log('language is loaded');
+        });
     }
 }
 
-module.exports = i18n
+export default i18n;

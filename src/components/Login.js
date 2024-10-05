@@ -1,4 +1,4 @@
-var m = require('mithril');
+import m from 'mithril';
 
 let UserNameInput = {
     error: '',
@@ -107,4 +107,4 @@ let Login = {
     }
 }
 
-module.exports = Login
+export default Login;

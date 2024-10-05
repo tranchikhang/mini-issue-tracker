@@ -1,10 +1,11 @@
-var m = require('mithril');
+import m from 'mithril';
 
-var IssueList = require('./IssueList.js');
-var IssueList = require('./IssueList.js');
+import IssueList from './IssueList.js';
 
-module.exports = {
+let Project = {
     view: function() {
         return m(IssueList)
     }
 }
+
+export default Project;

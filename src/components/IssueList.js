@@ -1,15 +1,15 @@
-var m = require('mithril');
+import m from 'mithril';
 
-var Issue = require('../models/Issue');
-var i18n = require('../components/common/i18n');
-var Constants = require('../resources/Constants.js');
+import Issue from '../models/Issue';
+import i18n from '../components/common/i18n';
+import {Priority} from '../resources/Constants';
 
 
 let IssueList = {
     projectId: null,
     oninit: function(vnode) {
-        projectId = vnode.attrs.id;
-        Issue.getList(projectId);
+        IssueList.projectId = vnode.attrs.id;
+        Issue.getList(IssueList.projectId);
     },
     view: () => {
         return m('div', {
@@ -65,7 +65,7 @@ let IssueList = {
                             class: 'issue-priority'
                         },
                         m('span', {
-                                class: 'priority ' + Constants.Priority[issue.priority].toLowerCase()
+                                class: 'priority ' + Priority[issue.priority].toLowerCase()
                             },
                             i18n.t('priority.' + issue.priority)
                         )
@@ -86,4 +86,4 @@ let IssueList = {
     }
 }
 
-module.exports = IssueList
+export default IssueList;

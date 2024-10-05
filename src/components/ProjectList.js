@@ -1,8 +1,8 @@
-var m = require('mithril');
+import m from 'mithril';
 
-var Project = require('../models/Project');
-var i18n = require('../components/common/i18n');
-var Constants = require('../resources/Constants.js');
+import Project from '../models/Project';
+import i18n from '../components/common/i18n';
+import {ProjectColors} from '../resources/Constants';
 
 let ProjectList = {
     oninit: Project.getList,
@@ -48,7 +48,7 @@ let ProjectList = {
             ])),
             Project.list.map(function(project) {
                 return m('tr', {
-                    'class': 'project-' + Constants.ProjectColors[project.color].toLowerCase()
+                    'class': 'project-' + ProjectColors[project.color].toLowerCase()
                 }, [
                     m('td', {
                             'class': 'project-code'
@@ -75,7 +75,7 @@ let ProjectList = {
                     m('td', {
                             'class': 'project-status'
                         },
-                        i18n.t('status' + '.' + project.status)
+                        i18n.t('status_value' + '.' + project.status)
                     )
                 ])
             })
@@ -83,4 +83,4 @@ let ProjectList = {
     }
 }
 
-module.exports = ProjectList
+export default ProjectList;

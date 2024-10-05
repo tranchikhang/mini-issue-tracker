@@ -1,7 +1,7 @@
-var m = require('mithril');
+import m from 'mithril';
 
-var Constants = require('../resources/Constants.js');
-var Project = require('../models/Project');
+import Constants from '../resources/Constants.js';
+import Project from '../models/Project';
 
 let CodeInput = {
     error: '',
@@ -352,4 +352,4 @@ let ProjectCreate = {
     }
 }
 
-module.exports = ProjectCreate
+export default ProjectCreate;

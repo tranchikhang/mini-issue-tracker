@@ -1,8 +1,8 @@
-var m = require('mithril');
+import m from 'mithril';
 
-var Issue = require('../models/Issue');
-var Helper = require('./common/Helper');
-var i18n = require('../components/common/i18n');
+import Issue from '../models/Issue';
+import Helper from './common/Helper';
+import i18n from '../components/common/i18n';
 
 let IssueDetail = {
     currentIssue: null,
@@ -20,7 +20,7 @@ let IssueDetail = {
                 m('span', {
                     class: 'icon is-small',
                     onclick: () => {
-                        console.log(vnode.attrs.id)
+                        console.log(IssueDetail.vnode.attrs.id)
                     }
                 }, [
                     m('i', {
@@ -210,4 +210,4 @@ let IssueDetail = {
     }
 }
 
-module.exports = IssueDetail
+export default IssueDetail;

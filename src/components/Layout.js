@@ -1,7 +1,7 @@
-var m = require('mithril');
+import m from 'mithril';
 
 var showBurgerMenu = false;
-var i18n = require('../components/common/i18n');
+import i18n from '../components/common/i18n';
 
 let Layout = {
     view: function(vnode) {
@@ -216,4 +216,4 @@ let Layout = {
     }
 }
 
-module.exports = Layout
+export default Layout;
