@@ -22,7 +22,8 @@
             "1": "Improvement",
             "2": "New Feature",
             "3": "Bug"
-        }
+        },
+        "title": "タイトル"
     },
     "manager": "管理者",
     "status": "ステータス",

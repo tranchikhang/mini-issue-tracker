@@ -1,14 +1,16 @@
 import m from 'mithril';
 
-import Issue from '../models/Issue';
+import IssueModel from '../models/IssueModel';
+import CommentModel from '../models/CommentModel';
+import Comment from './Comment';
 import Helper from './common/Helper';
 import i18n from '../components/common/i18n';
 
 let IssueDetail = {
     currentIssue: null,
     oninit: function(vnode) {
-        Issue.getList();
-        IssueDetail.currentIssue = Issue.list.find(issue => issue.id == vnode.attrs.id);
+        IssueModel.getList();
+        IssueDetail.currentIssue = IssueModel.list.find(issue => issue.id == vnode.attrs.id);
     },
     view: () => {
         return m('div', {
@@ -36,7 +38,7 @@ let IssueDetail = {
                     },
                     IssueDetail.currentIssue.summary
                 ),
-                m("p", IssueDetail.currentIssue.reporter)
+                m('p', IssueDetail.currentIssue.reporter)
             ]),
             m('div', {
                 class: 'block'
@@ -205,7 +207,10 @@ let IssueDetail = {
                         ])
                     ])
                 ]))
-            ])
+            ]),
+            m(Comment, {
+                'issueId': IssueDetail.currentIssue.id
+            })
         ])
     }
 }

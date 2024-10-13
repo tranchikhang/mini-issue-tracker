@@ -1,7 +1,7 @@
 import m from 'mithril';
 
-import Constants from '../resources/Constants.js';
-import Project from '../models/Project';
+import {Status, ProjectColors} from '../resources/Constants';
+import ProjectModel from '../models/ProjectModel';
 
 let CodeInput = {
     error: '',
@@ -157,9 +157,9 @@ let StatusSelect = {
                     StatusSelect.value = e.target.value;
                 }
             }, [
-                Object.keys(Constants.IssueStatus).map(key => m('option', {
+                Object.keys(IssueStatus).map(key => m('option', {
                     value: key
-                }, Constants.IssueStatus[key]))
+                }, IssueStatus[key]))
             ])
         );
     }
@@ -179,10 +179,10 @@ let ColorSelect = {
                     ColorSelect.value = e.target.value;
                 }
             }, [
-                Object.keys(Constants.ProjectColors).map(key => m('option', {
-                    style: 'background:' + Constants.ProjectColors[key],
+                Object.keys(ProjectColors).map(key => m('option', {
+                    style: 'background:' + ProjectColors[key],
                     value: key
-                }, Constants.ProjectColors[key]))
+                }, ProjectColors[key]))
             ])
         );
     }

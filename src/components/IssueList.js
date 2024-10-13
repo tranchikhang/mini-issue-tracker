@@ -1,6 +1,6 @@
 import m from 'mithril';
 
-import Issue from '../models/Issue';
+import IssueModel from '../models/IssueModel';
 import i18n from '../components/common/i18n';
 import {Priority} from '../resources/Constants';
 
@@ -9,7 +9,7 @@ let IssueList = {
     projectId: null,
     oninit: function(vnode) {
         IssueList.projectId = vnode.attrs.id;
-        Issue.getList(IssueList.projectId);
+        IssueModel.getList(IssueList.projectId);
     },
     view: () => {
         return m('div', {
@@ -31,25 +31,22 @@ let IssueList = {
                 m('div', {
                         class: 'issue-priority'
                     },
-                    ' Priority '
+                    i18n.t('priority.label')
                 ),
                 m('div', {
                         class: 'issue-summary'
                     },
-                    ' Summary '
+                    i18n.t('issue.title')
                 ),
                 m('div', {
                         class: 'issue-assignee'
                     },
-                    ' Assignee '
+                    i18n.t('assignee')
                 )
             ]),
-            Issue.list.map(issue => {
+            IssueModel.list.map(issue => {
                 return m('div', {
-                    class: 'issue',
-                    onclick: () => {
-                        m.route.set('/project/1/issue/' + issue.id);
-                    }
+                    class: 'issue'
                 }, [
                     m('div', {
                             class: 'issue-id'
@@ -71,7 +68,10 @@ let IssueList = {
                         )
                     ),
                     m('div', {
-                            class: 'issue-summary'
+                            class: 'issue-summary',
+                            onclick: () => {
+                                m.route.set('/project/1/issue/' + issue.id);
+                            }
                         },
                         issue.summary
                     ),

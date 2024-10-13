@@ -1,11 +1,11 @@
 import m from 'mithril';
 
-import Project from '../models/Project';
+import ProjectModel from '../models/ProjectModel';
 import i18n from '../components/common/i18n';
 import {ProjectColors} from '../resources/Constants';
 
 let ProjectList = {
-    oninit: Project.getList,
+    oninit: ProjectModel.getList,
     view: () => {
         return m('table', {
             'class': 'project-list table is-fullwidth'
@@ -46,7 +46,7 @@ let ProjectList = {
                     ''
                 )
             ])),
-            Project.list.map(function(project) {
+            ProjectModel.list.map(function(project) {
                 return m('tr', {
                     'class': 'project-' + ProjectColors[project.color].toLowerCase()
                 }, [
