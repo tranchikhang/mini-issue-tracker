@@ -1,7 +1,7 @@
 .issue-list .issue {
     display: grid;
     border-bottom: 1px solid #dbdbdb;
-    grid-template-columns: 10% 15% 15% auto 20%;
+    grid-template-columns: 10% 15% 15% auto 12% 12%;
     padding: 15px 0;
 }
 
@@ -51,6 +51,13 @@
 
 .issue-list .issue-assignee {
     grid-column: 5;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+}
+
+.issue-list .issue-modified {
+    grid-column: 6;
     grid-row: 1;
     display: flex;
     align-items: center;

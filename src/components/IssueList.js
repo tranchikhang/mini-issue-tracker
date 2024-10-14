@@ -42,6 +42,11 @@ let IssueList = {
                         class: 'issue-assignee'
                     },
                     i18n.t('assignee')
+                ),
+                m('div', {
+                        class: 'issue-modified'
+                    },
+                    i18n.t('modified_date'),
                 )
             ]),
             IssueModel.list.map(issue => {
@@ -79,6 +84,11 @@ let IssueList = {
                             class: 'issue-assignee'
                         },
                         issue.assignee
+                    ),
+                    m('div', {
+                            class: 'issue-modified'
+                        },
+                        issue.modified
                     )
                 ])
             })
