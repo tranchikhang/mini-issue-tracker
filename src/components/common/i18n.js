@@ -1,11 +1,11 @@
 import m from 'mithril';
-import en from '../../resources/lang/message.en.json';
-import jp from '../../resources/lang/message.jp.json';
 import config from '../../config/config';
+
+
+const urlTemplate = "resources/lang/message.{locale}.json";
 
 let i18n = {
     defaultLocale: config.DEFAULT_LOCALE,
-    messageUrl: "resources/lang/message.{locale}.json",
     messages: {},
     currentLocale: '',
 
@@ -26,11 +26,15 @@ let i18n = {
             return Promise.resolve();
         }
         i18n.currentLocale = newLocale;
-        i18n.messageUrl = i18n.messageUrl.replace("{locale}", i18n.currentLocale);
-        
+        i18n.messageUrl = urlTemplate.replace("{locale}", i18n.currentLocale);
+
+        if (process.env.NODE_ENV === 'development') {
+            i18n.messageUrl += `?v=${Date.now()}`;
+        }
+
         return m.request({
             method: 'GET',
-            url: `${config.LOCALIZATION_URL}message.${i18n.currentLocale}.json`
+            url: i18n.messageUrl
         })
         .then(function(result) {
             i18n.messages = result;

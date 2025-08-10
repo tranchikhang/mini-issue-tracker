@@ -2,7 +2,7 @@ import m from 'mithril';
 import ProjectList from './ProjectList.js';
 import ProjectCreate from './ProjectCreate.js';
 
-const Dashboard = {
+let Dashboard = {
     view: () => {
         return [
             m('div', {

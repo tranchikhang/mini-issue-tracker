@@ -8,7 +8,10 @@
     },
     "project": {
         "code": "Project code",
-        "name": "Project name"
+        "name": "Project name",
+        "open": "Open",
+        "closed": "Closed",
+        "total": "Total"
     },
     "priority": {
         "label": "Priority",

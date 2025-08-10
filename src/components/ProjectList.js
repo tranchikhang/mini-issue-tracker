@@ -41,9 +41,19 @@ let ProjectList = {
                     i18n.t('status')
                 ),
                 m('th', {
-                        'class': 'project-action'
+                        'class': 'project-open'
                     },
-                    ''
+                    i18n.t('project.open')
+                ),
+                m('th', {
+                        'class': 'project-closed'
+                    },
+                    i18n.t('project.closed')
+                ),
+                m('th', {
+                        'class': 'project-total'
+                    },
+                    i18n.t('project.total')
                 )
             ])),
             ProjectModel.list.map(function(project) {
@@ -76,6 +86,21 @@ let ProjectList = {
                             'class': 'project-status'
                         },
                         i18n.t('status_value' + '.' + project.status)
+                    ),
+                    m('td', {
+                            'class': 'project-open'
+                        },
+                        project.open
+                    ),
+                    m('td', {
+                            'class': 'project-closed'
+                        },
+                        project.closed
+                    ),
+                    m('td', {
+                            'class': 'project-total'
+                        },
+                        project.total
                     )
                 ])
             })
