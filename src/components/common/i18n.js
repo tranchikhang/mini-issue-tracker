@@ -1,5 +1,6 @@
 import m from 'mithril';
 import config from '../../config/config';
+import StorageHelper from './StorageHelper';
 
 
 const urlTemplate = "resources/lang/message.{locale}.json";
@@ -8,9 +9,15 @@ let i18n = {
     defaultLocale: config.DEFAULT_LOCALE,
     messages: {},
     currentLocale: '',
+    storageKey: 'language',
 
     init: function() {
-        return i18n.setLocale(i18n.getDefaultLocale());
+        if (StorageHelper.get(i18n.storageKey)) {
+            return i18n.setLocale(StorageHelper.get(i18n.storageKey));
+        }
+        else {
+            return i18n.setLocale(i18n.getDefaultLocale());
+        }
     },
 
     getDefaultLocale: function() {
@@ -27,6 +34,9 @@ let i18n = {
         }
         i18n.currentLocale = newLocale;
         i18n.messageUrl = urlTemplate.replace("{locale}", i18n.currentLocale);
+
+
+        StorageHelper.set(i18n.storageKey, newLocale);
 
         if (process.env.NODE_ENV === 'development') {
             i18n.messageUrl += `?v=${Date.now()}`;

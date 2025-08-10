@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack ./src/index.js --output-path ./ --output-filename app.js --mode development --watch",
+    "start": "npx webpack serve --mode development",
     "build": "webpack ./src/index.js --output-path ./ --output-filename app.js -p"
   },
   "keywords": [],
@@ -14,6 +14,7 @@
     "mithril": "^2.0.4"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^13.0.0",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.2.2"

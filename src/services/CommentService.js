@@ -1,42 +1,49 @@
 var CommentService = {
     getByIssueId: function(issueId) {
-        return [{
-            "id": 1,
-            "user": "John Doe",
-            "datetime": "2024-09-25T16:00:00Z",
-            "text": "I've noticed the API times out when fetching orders with over 100 items. Has anyone else experienced this?"
-        }, {
-            "id": 2,
-            "user": "Jane Smith",
-            "datetime": "2024-09-25T16:10:00Z",
-            "text": "Yes, I’ve run into the same issue. It seems to struggle with large datasets, especially when retrieving multiple orders at once."
-        }, {
-            "id": 3,
-            "user": "Michael Johnson",
-            "datetime": "2024-09-25T16:20:00Z",
-            "text": "Same here. I tried fetching an order with 150 items, and the API timed out after 30 seconds. Maybe we need to increase the timeout limit?"
-        }, {
-            "id": 4,
-            "user": "Emily Davis",
-            "datetime": "2024-09-25T16:30:00Z",
-            "text": "It’s not just about the timeout limit. I think there’s a performance issue when handling large order sizes. Optimizing the queries might help."
-        }, {
-            "id": 5,
-            "user": "Robert Brown",
-            "datetime": "2024-09-25T16:40:00Z",
-            "text": "Good point, Emily. The API should be able to handle larger requests without timing out. Has anyone tried testing with smaller datasets?"
-        }, {
-            "id": 6,
-            "user": "Sophia Wilson",
-            "datetime": "2024-09-25T16:50:00Z",
-            "text": "I’ve tested with smaller orders (around 50 items), and it worked fine. The issue really starts to appear with orders larger than 100 items."
-        }, {
-            "id": 7,
-            "user": "David Lee",
-            "datetime": "2024-09-25T17:00:00Z",
-            "text": "So it looks like the issue is related to the size of the orders. We should probably prioritize optimizing the API to handle larger requests more efficiently."
-        }]
-
+        return [
+            {
+                id: 1,
+                user: "佐藤太郎",
+                datetime: "2024-09-25T16:00:00Z",
+                text: "大きな注文データを取得するとAPIがタイムアウトしますね。最近特に顧客から履歴が見られないという問い合わせが増えています。"
+            },
+            {
+                id: 2,
+                user: "鈴木花子",
+                datetime: "2024-09-25T16:05:00Z",
+                text: "はい、特に商品数が100件を超える注文で発生しているようです。SQLの最適化を検討したほうがいいかもしれません。"
+            },
+            {
+                id: 3,
+                user: "田中一郎",
+                datetime: "2024-09-25T16:10:00Z",
+                text: "SQLの遅延もありますが、画像URL取得などで余計なAPI呼び出しが多いのも原因かもしれません。"
+            },
+            {
+                id: 4,
+                user: "高橋恵",
+                datetime: "2024-09-25T16:15:00Z",
+                text: "確かに、注文アイテムごとに画像を個別に取得しています。バッチでまとめて返すように修正すれば改善するかも。"
+            },
+            {
+                id: 5,
+                user: "中村健",
+                datetime: "2024-09-25T16:20:00Z",
+                text: "API側でページングを導入するのも一つの手だと思います。全件一度に返す必要はないですよね。"
+            },
+            {
+                id: 6,
+                user: "山本真由美",
+                datetime: "2024-09-25T16:25:00Z",
+                text: "ページング案に賛成です。それに加えてキャッシュを使えば、同じ注文を何度も取得するケースも改善できそうです。"
+            },
+            {
+                id: 7,
+                user: "小林翔",
+                datetime: "2024-09-25T16:30:00Z",
+                text: "じゃあ、まずはSQLの見直しとページング対応を同時に進めて、改善効果を計測しましょう。"
+            }
+        ]
     },
 }
 
