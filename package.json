@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mithril": "^2.0.4"
+    "mithril": "^2.3.8"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^13.0.0",
